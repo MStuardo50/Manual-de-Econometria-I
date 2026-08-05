@@ -4,7 +4,7 @@ author: "Maximiliano Stuardo & Joakina Quezada"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-description: "Manual práctico de Econometría I utilizando R y Bookdown."
+description: "Manual práctico de Econometría I"
 ---
 
 bookdown::gitbook:
@@ -28,5 +28,23 @@ bookdown::gitbook:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, child='introduccion.rmd'}
-```
+# Introducción: ¿Qué es la Econometría? {-}
+
+## Definición de Econometría
+
+La econometría es la disciplina que combina la teoría económica, la estadística y las matemáticas para analizar datos económicos y probar hipótesis. Su objetivo principal es cuantificar relaciones económicas y hacer predicciones basadas en modelos matemáticos.
+
+## Importancia de la Econometría
+
+La importancia de la econometría radica en su capacidad para proporcionar herramientas que permiten a los economistas y analistas tomar decisiones informadas. A través del análisis de datos, la econometría ayuda a:
+
+1. Evaluar políticas económicas.
+2. Predecir tendencias económicas.
+3. Identificar relaciones causales entre variables económicas.
+
+
+## Correlación y Causalidad
+
+Es fundamental entender la diferencia entre correlación y causalidad en econometría. La correlación indica que dos variables están relacionadas, pero no necesariamente que una cause la otra. La causalidad, por otro lado, implica que un cambio en una variable provoca un cambio en otra.
+
+Entonces, correlación no implica por ningún motivo causalidad. Por ejemplo, si observamos que el consumo de helado y los casos de insolación aumentan durante el verano, podemos decir que hay una correlación entre estas dos variables. Sin embargo, no podemos concluir que comer helado cause insolación; ambos fenómenos están relacionados con la temporada de verano.
