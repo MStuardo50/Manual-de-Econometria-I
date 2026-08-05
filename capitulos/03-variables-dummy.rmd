@@ -1,0 +1,169 @@
+# Variables Dummy
+
+Una variable Dummy (o típicamente variable indicadora) es una variable que toma el valor de 1 o 0 dependiendo de si se cumple o no una condición. Por ejemplo, si queremos estudiar el efecto de ser hombre o mujer en los ingresos, podemos crear una variable Dummy que tome el valor de 1 si la persona es hombre y 0 si es mujer.
+
+## Modelo de Regresión Simple con Variables Dummy
+ 
+En términos univariados el modelo queda escrito de la siguiente manera:
+
+$$
+Y = \beta_0 + \beta_1D + \varepsilon
+$$
+
+Donde el valor esperado para una persona hombre es:
+
+$$
+E(Y | D=1) = \beta_0 + \beta_1
+$$
+
+Así, el valor esperado para una persona mujer es:
+
+$$
+E(Y | D=0) = \beta_0
+$$
+
+La interpretación de $\beta_1$ es el cambio en los ingresos esperado al cambiar de mujer a hombre. Gráficamente, el modelo se ve de la siguiente manera:
+
+
+```{r, fig.align='center', fig.width=7, fig.height=4.5, echo=FALSE}
+library(ggplot2)
+
+# 1. Datos para el modelo simple Y = beta0 + beta1*D + e
+set.seed(123)
+n <- 80
+df_simple <- data.frame(
+  D = factor(sample(c(0, 1), n, replace = TRUE), labels = c("Mujer (D = 0)", "Hombre (D = 1)"))
+)
+# beta0 = 20, beta1 = 10 (Salario medio: Mujeres = 20, Hombres = 30)
+df_simple$salario <- ifelse(df_simple$D == "Hombre (D = 1)", 30, 20) + rnorm(n, 0, 3)
+
+# 2. Gráfico con líneas horizontales constantes (Medias)
+ggplot(df_simple, aes(x = D, y = salario, color = D)) +
+  geom_jitter(width = 0.15, alpha = 0.6, size = 2) + # Puntos dispersos sobre cada grupo
+  stat_summary(fun = mean, geom = "crossbar", width = 0.5, linewidth = 0.8) + # Líneas horizontales de la media
+  scale_color_manual(values = c("Mujer (D = 0)" = "firebrick", "Hombre (D = 1)" = "navy")) +
+  labs(
+    title = "Modelo Simple con Dummy: Diferencia de Medias",
+    subtitle = "El coeficiente beta1 es el salto vertical entre ambas rectas constantes",
+    x = "Variable Dummy (D)",
+    y = "Salario (Y)",
+    color = "Categoría"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+## Modelo de Regresión Múltiple con Variables Dummy
+
+En contextos multivariados, podemos incluir variables Dummy junto con otras variables continuas. Por ejemplo, si queremos estudiar el efecto de la educación y el género en los ingresos, podemos tener un modelo como:
+
+$$
+Y = \beta_0 + \beta_1D + \beta_2X + \varepsilon
+$$
+
+Donde la interpretación cambiará dependiendo de la variable Dummy y la variable continua. En este caso, $\beta_1$ representará el efecto del género en los ingresos, mientras que $\beta_2$ representará el efecto de la educación en los ingresos. Por lo tanto, el valor esperado de los ingresos para una persona hombre con un nivel de educación $X$ será:
+
+$$
+E(Y | D=1, X) = \beta_0 + \beta_1 + \beta_2X
+$$
+
+Así, el valor esperado para una persona mujer con el mismo nivel de educación $X$ será:
+
+$$
+E(Y | D=0, X) = \beta_0 + \beta_2X
+$$
+
+La interpretación de $\beta_1$ es el cambio en los ingresos esperado al cambiar de mujer a hombre, manteniendo constante el nivel de educación.
+
+Gráficamente, el modelo se ve de la siguiente manera:
+
+```{r, fig.align='center', fig.width=7, fig.height=4.5, echo=FALSE}
+library(ggplot2)
+
+# 1. Simulación de datos para el modelo Y = beta0 + beta1*D + beta2*X + e
+set.seed(42)
+n <- 100
+educacion <- runif(n, 8, 20) # Variable X
+genero <- factor(sample(c("Mujer (D = 0)", "Hombre (D = 1)"), n, replace = TRUE)) # Dummy D
+
+# beta0 = 10, beta1 = 5 (brecha por género), beta2 = 1.5 (retorno a educación)
+ingresos <- 10 + 1.5 * educacion + ifelse(genero == "Hombre (D = 1)", 5, 0) + rnorm(n, 0, 2)
+df_modelo <- data.frame(educacion, ingresos, genero)
+
+# 2. Gráfico del modelo
+ggplot(df_modelo, aes(x = educacion, y = ingresos, color = genero)) +
+  geom_point(alpha = 0.6, size = 2) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1.2) +
+  scale_color_manual(values = c("Mujer (D = 0)" = "#E74C3C", "Hombre (D = 1)" = "#2980B9")) +
+  labs(
+    title = "Efecto de la Educación y el Género en los Ingresos",
+    subtitle = "Modelo con diferente intercepto (beta1 = desplazamiento vertical)",
+    x = "Nivel de Educación (X)",
+    y = "Ingresos Esperados (Y)",
+    color = "Género"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+## Interacciones
+
+En nuestro modelo, también podemos incluir interacciones entre variables Dummy y continuas. Por ejemplo, si queremos ver si el efecto de la educación en los ingresos difiere entre hombres y mujeres, podemos incluir un término de interacción:
+
+$$
+Y = \beta_0 + \beta_1D + \beta_2X + \beta_3(D \times X) + \varepsilon
+$$
+
+En este caso, $\beta_3$ nos dirá si el efecto de la educación en los ingresos es diferente para hombres y mujeres. Si $\beta_3$ es positivo, significa que el retorno a la educación es mayor para los hombres que para las mujeres, y viceversa.
+
+Entonces, el valor esperado de los ingresos para una persona hombre con un nivel de educación $X$ será:
+
+$$
+E(Y | D=1, X) = \beta_0 + \beta_1
+    + \beta_2X + \beta_3X
+$$
+
+$$
+E(Y | D=1, X) = (\beta_0 + \beta_1) + (\beta_2 + \beta_3)X
+$$
+
+Así mismo, el efecto de los ingresos de una persona mujer con el mismo nivel de educación $X$ será:
+
+$$
+E(Y | D=0, X) = \beta_0 + \beta_2X
+$$
+
+Gráficamente, el modelo con interacción se ve de la siguiente manera:
+
+```{r, fig.align='center', fig.width=7, fig.height=4.5, echo=FALSE}
+library(ggplot2)
+
+# 1. Simulación de datos para Y = beta0 + beta1*D + beta2*X + beta3*(D*X) + e
+set.seed(42)
+n <- 100
+educacion <- runif(n, 8, 20)
+genero <- factor(sample(c("Mujer (D = 0)", "Hombre (D = 1)"), n, replace = TRUE))
+
+# Parámetros: beta0 = 10, beta1 = 2 (intercepto), beta2 = 1.0 (pendiente base), beta3 = 1.2 (diferencia de pendiente)
+df_inter <- data.frame(educacion, genero)
+df_inter$ingresos <- 10 + 
+  ifelse(df_inter$genero == "Hombre (D = 1)", 2, 0) + 
+  1.0 * df_inter$educacion + 
+  ifelse(df_inter$genero == "Hombre (D = 1)", 1.2 * df_inter$educacion, 0) + 
+  rnorm(n, 0, 3)
+
+# 2. Gráfico con interacción (distinto intercepto Y distinta pendiente)
+ggplot(df_inter, aes(x = educacion, y = ingresos, color = genero)) +
+  geom_point(alpha = 0.6, size = 2) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1.2) + # ggplot detecta la interacción automáticamente
+  scale_color_manual(values = c("Mujer (D = 0)" = "#E74C3C", "Hombre (D = 1)" = "#2980B9")) +
+  labs(
+    title = "Modelo con Interacción (D × X)",
+    subtitle = "Diferente intercepto (beta1) y diferente pendiente (beta3)",
+    x = "Educación (X)",
+    y = "Ingresos (Y)",
+    color = "Género"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Endogeneidad: Variables Instrumentales | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Endogeneidad: Variables Instrumentales | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Endogeneidad: Variables Instrumentales | _main.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="heterocedasticidad.html"/>
+<link rel="next" href="anexo.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción: ¿Qué es la Econometría?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#definici%C3%B3n-de-econometr%C3%ADa"><i class="fa fa-check"></i><b>1.1</b> Definición de Econometría</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#importancia-de-la-econometr%C3%ADa"><i class="fa fa-check"></i><b>1.2</b> Importancia de la Econometría</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#correlaci%C3%B3n-y-causalidad"><i class="fa fa-check"></i><b>1.3</b> Correlación y Causalidad</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html"><i class="fa fa-check"></i><b>2</b> Regresión Lineal Simple</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#definici%C3%B3n"><i class="fa fa-check"></i><b>2.1</b> Definición</a></li>
+<li class="chapter" data-level="2.2" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#supuestos-gauss-markov"><i class="fa fa-check"></i><b>2.2</b> Supuestos Gauss-Markov</a></li>
+<li class="chapter" data-level="2.3" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#especificaciones"><i class="fa fa-check"></i><b>2.3</b> Especificaciones</a></li>
+<li class="chapter" data-level="2.4" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#inferencia-estad%C3%ADstica"><i class="fa fa-check"></i><b>2.4</b> Inferencia Estadística</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html"><i class="fa fa-check"></i><b>3</b> Modelo de Regresión Lineal Múltiple</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#definici%C3%B3n-1"><i class="fa fa-check"></i><b>3.1</b> Definición</a></li>
+<li class="chapter" data-level="3.2" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#bondad-de-ajuste"><i class="fa fa-check"></i><b>3.2</b> Bondad de Ajuste</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#r2"><i class="fa fa-check"></i><b>3.2.1</b> <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#overfitting"><i class="fa fa-check"></i><b>3.2.2</b> Overfitting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#inferencia-estad%C3%ADstica-1"><i class="fa fa-check"></i><b>3.3</b> Inferencia Estadística</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#prueba-de-significancia-global"><i class="fa fa-check"></i><b>3.3.1</b> Prueba de Significancia Global</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#prueba-de-significancia-de-combinaciones-de-par%C3%A1metros"><i class="fa fa-check"></i><b>3.4</b> Prueba de Significancia de Combinaciones de Parámetros</a></li>
+<li class="chapter" data-level="3.5" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#m%C3%BAltiples-restricciones-lineales"><i class="fa fa-check"></i><b>3.5</b> Múltiples Restricciones Lineales</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variables-dummy.html"><a href="variables-dummy.html"><i class="fa fa-check"></i><b>4</b> Variables Dummy</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variables-dummy.html"><a href="variables-dummy.html#modelo-de-regresi%C3%B3n-simple-con-variables-dummy"><i class="fa fa-check"></i><b>4.1</b> Modelo de Regresión Simple con Variables Dummy</a></li>
+<li class="chapter" data-level="4.2" data-path="variables-dummy.html"><a href="variables-dummy.html#modelo-de-regresi%C3%B3n-m%C3%BAltiple-con-variables-dummy"><i class="fa fa-check"></i><b>4.2</b> Modelo de Regresión Múltiple con Variables Dummy</a></li>
+<li class="chapter" data-level="4.3" data-path="variables-dummy.html"><a href="variables-dummy.html#interacciones"><i class="fa fa-check"></i><b>4.3</b> Interacciones</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="multicolinealidad.html"><a href="multicolinealidad.html"><i class="fa fa-check"></i><b>5</b> Multicolinealidad</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="multicolinealidad.html"><a href="multicolinealidad.html#multicolinealidad-perfecta"><i class="fa fa-check"></i><b>5.1</b> Multicolinealidad Perfecta</a></li>
+<li class="chapter" data-level="5.2" data-path="multicolinealidad.html"><a href="multicolinealidad.html#multicolinealidad-no-perfecta"><i class="fa fa-check"></i><b>5.2</b> Multicolinealidad No Perfecta</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="heterocedasticidad.html"><a href="heterocedasticidad.html"><i class="fa fa-check"></i><b>6</b> Heterocedasticidad</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="heterocedasticidad.html"><a href="heterocedasticidad.html#definici%C3%B3n-2"><i class="fa fa-check"></i><b>6.1</b> Definición</a></li>
+<li class="chapter" data-level="6.2" data-path="heterocedasticidad.html"><a href="heterocedasticidad.html#consecuencias-para-mco"><i class="fa fa-check"></i><b>6.2</b> Consecuencias para MCO</a></li>
+<li class="chapter" data-level="6.3" data-path="heterocedasticidad.html"><a href="heterocedasticidad.html#detecci%C3%B3n-de-heterocedasticidad"><i class="fa fa-check"></i><b>6.3</b> Detección de Heterocedasticidad</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html"><i class="fa fa-check"></i><b>7</b> Endogeneidad: Variables Instrumentales</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#definici%C3%B3n-3"><i class="fa fa-check"></i><b>7.1</b> Definición</a></li>
+<li class="chapter" data-level="7.2" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#soluci%C3%B3n-variables-instrumentales"><i class="fa fa-check"></i><b>7.2</b> Solución: Variables Instrumentales</a></li>
+<li class="chapter" data-level="7.3" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#m%C3%ADnimo-cuadrados-en-dos-etapas-mc2e"><i class="fa fa-check"></i><b>7.3</b> Mínimo Cuadrados en Dos Etapas (MC2E)</a></li>
+<li class="chapter" data-level="7.4" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#implicancias-de-m%C3%ADnimos-cuadrados-en-dos-etapas"><i class="fa fa-check"></i><b>7.4</b> Implicancias de Mínimos Cuadrados en Dos Etapas</a></li>
+<li class="chapter" data-level="7.5" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#test-de-hausman"><i class="fa fa-check"></i><b>7.5</b> Test de Hausman</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="anexo.html"><a href="anexo.html"><i class="fa fa-check"></i><b>8</b> Anexo</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="anexo.html"><a href="anexo.html#regresi%C3%B3n-lineal-simple-1"><i class="fa fa-check"></i><b>8.1</b> Regresión Lineal Simple</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-del-estimador-de-hatbeta_0-y-hatbeta_1-mediante-mco"><i class="fa fa-check"></i><b>8.1.1</b> Demostración del estimador de <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span> mediante MCO</a></li>
+<li class="chapter" data-level="8.1.2" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-insesgadez-para-hatbeta_0-y-hatbeta_1"><i class="fa fa-check"></i><b>8.1.2</b> Demostración de Insesgadez para <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span></a></li>
+<li class="chapter" data-level="8.1.3" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-la-varianza-de-hatbeta_1"><i class="fa fa-check"></i><b>8.1.3</b> Demostración de la varianza de <span class="math inline">\(\hat{\beta}_1\)</span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="endogeneidad-variables-instrumentales" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Endogeneidad: Variables Instrumentales<a href="endogeneidad-variables-instrumentales.html#endogeneidad-variables-instrumentales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="definición-3" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Definición<a href="endogeneidad-variables-instrumentales.html#definici%C3%B3n-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ahora hablaremos de un problema que ocurre cuando no se cumple el supuesto de exogeneidad, es decir, cuando <span class="math inline">\(E(u | X) \neq 0\)</span>. En este caso, los estimadores obtenidos a través de Mínimos Cuadrados Ordinarios (MCO) serán sesgados e inconsistentes.</p>
+<p>La endogeneidad por definición es un problema que ocurre cuando una o más variables explicativas están correlacionadas con el término de error. Esto puede suceder por varios tipos de sesgo, los cuales son:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Sesgo por variable omitida:</strong> Ocurre cuando se omite una variable que afecta tanto a la variable dependiente como a una o más variables independientes, lo que genera una correlación entre las variables explicativas y el término de error.</li>
+<li><strong>Sesgo por simultaneidad:</strong> Ocurre cuando la variable dependiente y una o más variables independientes se determinan de manera simultánea, lo que genera una correlación entre las variables explicativas y el término de error.</li>
+<li><strong>Sesgo por error de medición:</strong> Ocurre cuando una o más variables independientes se miden con error, lo que genera una correlación entre las variables explicativas y el término de error.</li>
+</ol>
+</div>
+<div id="solución-variables-instrumentales" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Solución: Variables Instrumentales<a href="endogeneidad-variables-instrumentales.html#soluci%C3%B3n-variables-instrumentales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para solucionar este problema de endogeneidad utilizaremos Variables Instrumentales (VI). Una variable instrumental es una variable que está correlacionada con la variable endógena, pero no está correlacionada con el término de error. Esto nos permite aislar la variación exógena de la variable endógena y obtener estimadores consistentes.</p>
+<p>Entonces, para que una variable sea un buen instrumento debe cumplir con dos condiciones:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Relevancia:</strong> La variable instrumental debe estar correlacionada con la variable endógena (<span class="math inline">\(Cov(Z, X) \neq 0\)</span>). Esto se puede verificar mediante un test de relevancia, como el test de F de la primera etapa (ya se mencionará esto más adelante).</li>
+<li><strong>Exogeneidad:</strong> La variable instrumental no debe estar correlacionada con el término de error (<span class="math inline">\(Cov(Z, u) = 0\)</span>). Esto no es posible determinarlo mediante test, si no, a través de argumentos teóricos o evidencia empírica.</li>
+</ol>
+</div>
+<div id="mínimo-cuadrados-en-dos-etapas-mc2e" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Mínimo Cuadrados en Dos Etapas (MC2E)<a href="endogeneidad-variables-instrumentales.html#m%C3%ADnimo-cuadrados-en-dos-etapas-mc2e" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para estimar un modelo con variables instrumentales utilizaremos el método de Mínimos Cuadrados en Dos Etapas (MC2E). Este método consiste en dos etapas:</p>
+<ol style="list-style-type: decimal">
+<li>La primera etapa corresponde a regresionar la variable endógena sobre las variables instrumentales y las variables exógenas del modelo. Esto nos permitirá obtener los valores ajustados de la variable endógena, que son puramente exógenos. Luego, antes de seguir se realiza el test de relevancia para verificar que los instrumentos son relevantes. Se debe cumplir que el estadístico F de la primera etapa sea mayor a 10, de lo contrario, los instrumentos son débiles y no se puede confiar en los resultados.</li>
+<li>Recuperamos la variable endógena ajustada de la primera etapa y la utilizamos en la segunda etapa para estimar el modelo original mediante MCO. Esto nos permitirá obtener estimadores consistentes de los parámetros del modelo.</li>
+</ol>
+</div>
+<div id="implicancias-de-mínimos-cuadrados-en-dos-etapas" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Implicancias de Mínimos Cuadrados en Dos Etapas<a href="endogeneidad-variables-instrumentales.html#implicancias-de-m%C3%ADnimos-cuadrados-en-dos-etapas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>De por si, la solución al problema de endogeneidad es un gran avance, pero debemos tener en cuenta que el método de Mínimos Cuadrados en Dos Etapas tiene algunas implicancias:</p>
+<ol style="list-style-type: decimal">
+<li>Los errores estándar obtenidos a través de la segunda etapa de MC2E son más altos que en MCO, lo que significa que los intervalos de confianza serán más amplios y las pruebas de hipótesis serán menos poderosas. Esto ocurre porque al estimar la variable endógena en la primera etapa, se introduce un error adicional en la estimación de los parámetros del modelo.</li>
+<li>La interpretación de los coeficientes estimados a través de MC2E es diferente. En el caso de MC2E, la interpretación de los coeficientes ahora es el efecto causal de la variable endógena sobre la variable dependiente, mientras que en MCO, la interpretación es el efecto total de la variable endógena sobre la variable dependiente, incluyendo tanto el efecto directo como el efecto indirecto a través de otras variables.</li>
+</ol>
+</div>
+<div id="test-de-hausman" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Test de Hausman<a href="endogeneidad-variables-instrumentales.html#test-de-hausman" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El test de Hausman es una prueba estadística que nos permite determinar si un modelo es consistente o no. En el contexto de variables instrumentales, el test de Hausman nos permite comparar los estimadores obtenidos a través de MCO y MC2E para determinar si la variable endógena es realmente endógena o no.
+Para realizar este test se debe cumplir con las siguientes hipótesis:</p>
+<p><span class="math display">\[
+H_0: \text{La variable endógena es exógena, por lo tanto, MCO es consistente.}
+\]</span>
+<span class="math display">\[
+H_A: \text{La variable endógena es endógena, por lo tanto, MCO es inconsistente y MC2E es consistente.}
+\]</span></p>
+<p>Primero, para realizar este test se especifica el modelo. Por ejemplo:</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + u
+\]</span></p>
+<p>Luego, se estima la primera etapa del modelo de la variable endógena <span class="math inline">\(X_1\)</span> sobre las variables instrumentales <span class="math inline">\(Z\)</span> y las variables exógenas <span class="math inline">\(X_2\)</span>:</p>
+<p><span class="math display">\[
+X_1 = \pi_0 + \pi_1Z + \pi_2X_2 + v
+\]</span></p>
+<p>De esta regresión se obtiene el residuo <span class="math inline">\(\hat{v}\)</span>, que representa la parte de <span class="math inline">\(X_1\)</span> que no está explicada por las variables instrumentales y las variables exógenas. Luego, se estima el modelo original incluyendo el residuo <span class="math inline">\(\hat{v}\)</span> como una variable adicional:</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \gamma\hat{v} + u
+\]</span></p>
+<p>Ahora se realiza un test de hipótesis sobre el coeficiente <span class="math inline">\(\gamma\)</span>:</p>
+<p><span class="math display">\[
+H_0: \gamma = 0 \quad \text{(La variable endógena es exógena, MCO es consistente)}
+\]</span><br />
+<span class="math display">\[
+H_A: \gamma \neq 0 \quad \text{(La variable endógena es endógena, MCO es inconsistente y MC2E es consistente)}
+\]</span></p>
+<p>Se realiza un estadístico de prueba <span class="math inline">\(t\)</span> para el coeficiente <span class="math inline">\(\gamma\)</span> y se compara con el valor crítico correspondiente al nivel de significancia deseado. Si se rechaza la hipótesis nula, se concluye que la variable endógena es endógena y que los estimadores obtenidos a través de MCO son inconsistentes, por lo tanto, se debe utilizar MC2E para obtener estimadores consistentes.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="heterocedasticidad.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="anexo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

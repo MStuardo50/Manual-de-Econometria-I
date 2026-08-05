@@ -1,0 +1,75 @@
+# Endogeneidad: Variables Instrumentales
+
+## Definición
+
+Ahora hablaremos de un problema que ocurre cuando no se cumple el supuesto de exogeneidad, es decir, cuando $E(u | X) \neq 0$. En este caso, los estimadores obtenidos a través de Mínimos Cuadrados Ordinarios (MCO) serán sesgados e inconsistentes.
+
+La endogeneidad por definición es un problema que ocurre cuando una o más variables explicativas están correlacionadas con el término de error. Esto puede suceder por varios tipos de sesgo, los cuales son:
+
+1. **Sesgo por variable omitida:** Ocurre cuando se omite una variable que afecta tanto a la variable dependiente como a una o más variables independientes, lo que genera una correlación entre las variables explicativas y el término de error.
+2. **Sesgo por simultaneidad:** Ocurre cuando la variable dependiente y una o más variables independientes se determinan de manera simultánea, lo que genera una correlación entre las variables explicativas y el término de error.
+3. **Sesgo por error de medición:** Ocurre cuando una o más variables independientes se miden con error, lo que genera una correlación entre las variables explicativas y el término de error.
+
+## Solución: Variables Instrumentales
+
+Para solucionar este problema de endogeneidad utilizaremos Variables Instrumentales (VI). Una variable instrumental es una variable que está correlacionada con la variable endógena, pero no está correlacionada con el término de error. Esto nos permite aislar la variación exógena de la variable endógena y obtener estimadores consistentes.
+
+Entonces, para que una variable sea un buen instrumento debe cumplir con dos condiciones:
+
+1. **Relevancia:** La variable instrumental debe estar correlacionada con la variable endógena ($Cov(Z, X) \neq 0$). Esto se puede verificar mediante un test de relevancia, como el test de F de la primera etapa (ya se mencionará esto más adelante).
+2. **Exogeneidad:** La variable instrumental no debe estar correlacionada con el término de error ($Cov(Z, u) = 0$). Esto no es posible determinarlo mediante test, si no, a través de argumentos teóricos o evidencia empírica.
+
+## Mínimo Cuadrados en Dos Etapas (MC2E)
+
+Para estimar un modelo con variables instrumentales utilizaremos el método de Mínimos Cuadrados en Dos Etapas (MC2E). Este método consiste en dos etapas:
+
+1. La primera etapa corresponde a regresionar la variable endógena sobre las variables instrumentales y las variables exógenas del modelo. Esto nos permitirá obtener los valores ajustados de la variable endógena, que son puramente exógenos. Luego, antes de seguir se realiza el test de relevancia para verificar que los instrumentos son relevantes. Se debe cumplir que el estadístico F de la primera etapa sea mayor a 10, de lo contrario, los instrumentos son débiles y no se puede confiar en los resultados.
+2. Recuperamos la variable endógena ajustada de la primera etapa y la utilizamos en la segunda etapa para estimar el modelo original mediante MCO. Esto nos permitirá obtener estimadores consistentes de los parámetros del modelo.
+
+## Implicancias de Mínimos Cuadrados en Dos Etapas
+
+De por si, la solución al problema de endogeneidad es un gran avance, pero debemos tener en cuenta que el método de Mínimos Cuadrados en Dos Etapas tiene algunas implicancias:
+
+1. Los errores estándar obtenidos a través de la segunda etapa de MC2E son más altos que en MCO, lo que significa que los intervalos de confianza serán más amplios y las pruebas de hipótesis serán menos poderosas. Esto ocurre porque al estimar la variable endógena en la primera etapa, se introduce un error adicional en la estimación de los parámetros del modelo.
+2. La interpretación de los coeficientes estimados a través de MC2E es diferente. En el caso de MC2E, la interpretación de los coeficientes ahora es el efecto causal de la variable endógena sobre la variable dependiente, mientras que en MCO, la interpretación es el efecto total de la variable endógena sobre la variable dependiente, incluyendo tanto el efecto directo como el efecto indirecto a través de otras variables.
+
+## Test de Hausman
+
+El test de Hausman es una prueba estadística que nos permite determinar si un modelo es consistente o no. En el contexto de variables instrumentales, el test de Hausman nos permite comparar los estimadores obtenidos a través de MCO y MC2E para determinar si la variable endógena es realmente endógena o no. 
+Para realizar este test se debe cumplir con las siguientes hipótesis:  
+
+$$
+H_0: \text{La variable endógena es exógena, por lo tanto, MCO es consistente.}
+$$
+$$
+H_A: \text{La variable endógena es endógena, por lo tanto, MCO es inconsistente y MC2E es consistente.}
+$$
+
+Primero, para realizar este test se especifica el modelo. Por ejemplo:
+
+$$
+Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + u
+$$
+
+Luego, se estima la primera etapa del modelo de la variable endógena $X_1$ sobre las variables instrumentales $Z$ y las variables exógenas $X_2$:
+
+$$
+X_1 = \pi_0 + \pi_1Z + \pi_2X_2 + v
+$$
+
+De esta regresión se obtiene el residuo $\hat{v}$, que representa la parte de $X_1$ que no está explicada por las variables instrumentales y las variables exógenas. Luego, se estima el modelo original incluyendo el residuo $\hat{v}$ como una variable adicional:
+
+$$
+Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \gamma\hat{v} + u
+$$
+
+Ahora se realiza un test de hipótesis sobre el coeficiente $\gamma$:
+
+$$
+H_0: \gamma = 0 \quad \text{(La variable endógena es exógena, MCO es consistente)}
+$$      
+$$
+H_A: \gamma \neq 0 \quad \text{(La variable endógena es endógena, MCO es inconsistente y MC2E es consistente)}
+$$
+
+Se realiza un estadístico de prueba $t$ para el coeficiente $\gamma$ y se compara con el valor crítico correspondiente al nivel de significancia deseado. Si se rechaza la hipótesis nula, se concluye que la variable endógena es endógena y que los estimadores obtenidos a través de MCO son inconsistentes, por lo tanto, se debe utilizar MC2E para obtener estimadores consistentes.

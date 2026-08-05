@@ -1,0 +1,171 @@
+# Anexo
+
+## Regresión Lineal Simple
+
+### Demostración del estimador de $\hat{\beta}_0$ y $\hat{\beta}_1$ mediante MCO
+
+$$
+\text{Problema:} \quad \min_{\beta_0, \beta_1} \sum_{i=1}^{n}\varepsilon_i^2 = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2
+$$
+
+**Para $\hat{\beta}_0$:**
+
+$$
+\frac{\partial \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2}{\partial \beta_0} = 0
+$$
+
+$$
+-2\sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i) = 0
+$$
+
+$$
+\sum_{i=1}^{n} y_i - n\beta_0 - \beta_1 \sum_{i=1}^{n} x_i = 0
+$$
+
+$$
+n\beta_0 = \sum_{i=1}^{n} y_i - \beta_1 \sum_{i=1}^{n} x_i
+$$
+
+$$
+\widehat{\beta}_0 = \frac{1}{n} \sum_{i=1}^{n} y_i - \hat{\beta}_1 \frac{1}{n} \sum_{i=1}^{n} x_i
+$$
+
+$$
+\widehat{\beta}_0 = \bar{y} - \widehat{\beta}_1\bar{x}
+$$
+
+**Luego, para $\hat{\beta}_1$:**
+
+$$
+\frac{\partial \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2}{\partial \beta_1} = 0
+$$
+
+$$
+-2\sum_{i=1}^{n} x_i (y_i - \beta_0 - \beta_1 x_i) = 0
+$$
+
+$$
+\sum_{i=1}^{n} x_i y_i - \beta_0 \sum_{i=1}^{n} x_i - \beta_1 \sum_{i=1}^{n} x_i^2 = 0
+$$
+
+Sabiendo que $\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}$, podemos sustituirlo en la ecuación anterior:
+
+$$
+\sum_{i=1}^{n} x_i y_i - (\bar{y} - \hat{\beta}_1\bar{x}) \sum_{i=1}^{n} x_i - \hat{\beta}_1 \sum_{i=1}^{n} x_i^2 = 0
+$$
+
+$$
+\sum_{i=1}^{n} x_i y_i - \bar{y} \sum_{i=1}^{n} x_i + \hat{\beta}_1\bar{x} \sum_{i=1}^{n} x_i - \hat{\beta}_1 \sum_{i=1}^{n} x_i^2 = 0
+$$
+
+Reordenando los términos con $\hat{\beta}_1$:
+
+$$
+\sum_{i=1}^{n} x_i y_i - \bar{y} \sum_{i=1}^{n} x_i = \hat{\beta}_1 \left( \sum_{i=1}^{n} x_i^2 - \bar{x} \sum_{i=1}^{n} x_i \right)
+$$
+
+Despejando $\hat{\beta}_1$:
+
+$$
+\hat{\beta}_1 = \frac{\sum_{i=1}^{n} x_i y_i - \bar{y} \sum_{i=1}^{n} x_i}{\sum_{i=1}^{n} x_i^2 - \bar{x} \sum_{i=1}^{n} x_i}
+$$
+
+Dividiendo numerador y denominador por $n$ y asumiendo datos i.i.d.:
+
+$$
+\hat{\beta}_1 = \frac{Cov(Y,X)}{Var(X)}
+$$
+
+---
+
+### Demostración de Insesgadez para $\hat{\beta}_0$ y $\hat{\beta}_1$
+
+**Primero, para $\hat{\beta}_0$:**
+
+$$
+E[\hat{\beta}_0] = E[\bar{y} - \hat{\beta}_1\bar{x}]
+$$
+
+$$
+E[\hat{\beta}_0] = E[\bar{y}] - \bar{x}E[\hat{\beta}_1]
+$$
+
+Sabemos que $\bar{y} = \beta_0 + \beta_1\bar{x} + \bar{\varepsilon}$, entonces:
+
+$$
+E[\hat{\beta}_0] = E[\beta_0 + \beta_1\bar{x} + \bar{\varepsilon}] - \bar{x}E[\hat{\beta}_1]
+$$
+
+Por esperanza condicional cero, $E[\bar{\varepsilon}] = 0$:
+
+$$
+E[\hat{\beta}_0] = \beta_0 + \beta_1\bar{x} - \bar{x}E[\hat{\beta}_1]
+$$
+
+Dado que $E[\hat{\beta}_1] = \beta_1$:
+
+$$
+E[\hat{\beta}_0] = \beta_0 + \beta_1\bar{x} - \beta_1\bar{x} = \beta_0
+$$
+
+**Luego, para $\hat{\beta}_1$:**
+
+$$
+E[\hat{\beta}_1] = E\left[\frac{Cov(Y,X)}{Var(X)}\right]
+$$
+
+Dado que $Y = \beta_0 + \beta_1X + \varepsilon$:
+
+$$
+E[\hat{\beta}_1] = E\left[\frac{Cov(\beta_0 + \beta_1X + \varepsilon, X)}{Var(X)}\right]
+$$
+
+Por propiedades de la covarianza:
+
+$$
+E[\hat{\beta}_1] = E\left[\frac{Cov(\beta_1X, X) + Cov(\varepsilon, X)}{Var(X)}\right]
+$$
+
+Por exogeneidad estricta, $Cov(\varepsilon, X) = 0$:
+
+$$
+E[\hat{\beta}_1] = E\left[\frac{\beta_1 Cov(X, X)}{Var(X)}\right]
+$$
+
+Como $Cov(X, X) = Var(X)$:
+
+$$
+E[\hat{\beta}_1] = E\left[\frac{\beta_1 Var(X)}{Var(X)}\right] = E[\beta_1] = \beta_1
+$$
+
+---
+
+### Demostración de la varianza de $\hat{\beta}_1$
+
+Escribiendo el estimador en términos de los errores $\varepsilon_i$:
+
+$$
+\hat{\beta}_1 = \beta_1 + \frac{\sum_{i=1}^{n}(x_i - \bar{x})\varepsilon_i}{\sum_{i=1}^{n}(x_i - \bar{x})^2}
+$$
+
+Aplicando el operador varianza condicional a $X$:
+
+$$
+Var(\hat{\beta}_1 | X) = Var\left( \beta_1 + \frac{\sum_{i=1}^{n}(x_i - \bar{x})\varepsilon_i}{\sum_{i=1}^{n}(x_i - \bar{x})^2} \ \Bigg|\  X \right)
+$$
+
+Como $\beta_1$ es una constante y asumiendo homocedasticidad ($Var(\varepsilon_i|X) = \sigma^2$) e independencia de los errores:
+
+$$
+Var(\hat{\beta}_1 | X) = \frac{\sum_{i=1}^{n}(x_i - \bar{x})^2 Var(\varepsilon_i | X)}{\left(\sum_{i=1}^{n}(x_i - \bar{x})^2\right)^2}
+$$
+
+$$
+Var(\hat{\beta}_1 | X) = \frac{\sigma^2 \sum_{i=1}^{n}(x_i - \bar{x})^2}{\left(\sum_{i=1}^{n}(x_i - \bar{x})^2\right)^2}
+$$
+
+Simplificando el término del sumatorio y amplificando todo por $\frac{1}{n}$ tenemos que:
+
+$$
+Var(\hat{\beta_1}| X) = \frac{\sigma^2}{nVar(X)}
+$$

@@ -1,0 +1,38 @@
+# Multicolinealidad
+
+## Multicolinealidad Perfecta
+
+La multicolinealidad perfecta es cuando tenemos dentro de un modelo, una variable regresora que se puede escribir como combinación lineal de otra. Sea el siguiente modelo:
+
+$$
+Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \varepsilon
+$$
+
+Donde $X_2 = 2X_1$, por ejemplo. Si reemplazamos esa especificación para $X_24 tendríamos que:
+
+$$
+Y = \beta_0 + \beta_1X_1 + \beta_2 \cdot 2X_1 + \varepsilon
+$$
+
+Y luego:
+
+$$
+Y = \beta_0 + [\beta_1 + 2\beta_2]X_1 + \varepsilon
+$$
+
+Y a esta combinación lineal de betas que está multiplicando a $X_1$ le llamaremos $\beta^*$, tal que:
+
+$$
+Y = \beta_0 + \beta^*X_1 + \varepsilon
+$$
+
+Matemáticamente lo que esta ocurriendo es que, al ser $X_2$ combinación lineal de $X_1$ (devolviéndonos al estimador del vector de parámetros) incurriríamos en el siguiente problema:
+
+$$\hat{\beta} = (X^TX)^{-1}X^TY$$
+
+Como tenemos dos columnas que son combinaciones lineales, el determinante de la matriz $(X^TX) \neq 0$, por lo tanto la inversa de dicha matriz **no está definida.**
+
+
+
+## Multicolinealidad No Perfecta
+

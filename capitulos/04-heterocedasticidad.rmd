@@ -1,0 +1,93 @@
+# Heterocedasticidad
+
+## Definición
+
+Anteriormente, por supuestos Gauss-Markov habíamos asumido que estábamos en presencia de homocedasticidad, es decir, la varianza de los residuos es constante. Pero, lamentablemente en la realidad esto es casi imposible que ocurra. Definimos anteriormente, la varianza del parámetro como:
+
+$$V(\widehat{\beta}) = (X^TX)^{-1}X^TE[UU^T]X(X^TX)^{-1}$$
+
+Donde asumíamos que $E[UU^T] = \sigma^2I$ obviamente por el supuesto de Homocedasticidad. En presencia de heterocedasticidad esto ya no ocurre, por lo que a esta expresión la denotaremos por $\Omega$. Por tanto la varianza del parámetro queda como:
+
+$$V(\widehat{\beta}) =  (X^TX)^{-1}X^T\Omega X(X^TX)^{-1}$$
+
+Donde $\Omega$ es una matriz diagonal con elementos $\sigma_i^2$ en la diagonal, es decir, la varianza de los residuos no es constante. Por lo tanto, el estimador de MCO sigue siendo insesgado, pero ya no es eficiente. Por lo que necesitamos un estimador robusto a heterocedasticidad.
+
+Gráficamente, la heterocedasticidad se puede presentar de la siguiente forma:
+
+```{r, fig.align='center', fig.width=9, fig.height=4.5, echo=FALSE}
+library(ggplot2)
+
+set.seed(123)
+n <- 150
+x <- seq(1, 10, length.out = n)
+
+# Generar los residuos para los tres casos
+e_creciente   <- rnorm(n, mean = 0, sd = 0.3 * x)
+e_decreciente <- rnorm(n, mean = 0, sd = 0.3 * (11 - x))
+e_forma_u     <- rnorm(n, mean = 0, sd = 0.15 * (x - 5.5)^2 + 0.3)
+
+# Unir todo en un solo data frame
+df_hetero <- rbind(
+  data.frame(x = x, residuos = e_creciente,   tipo = "1. Creciente"),
+  data.frame(x = x, residuos = e_decreciente, tipo = "2. Decreciente"),
+  data.frame(x = x, residuos = e_forma_u,     tipo = "3. Forma de U")
+)
+
+# Graficar los tres patrones juntos
+ggplot(df_hetero, aes(x = x, y = residuos, color = tipo)) +
+  geom_point(alpha = 0.6, size = 1.8) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  facet_wrap(~ tipo) +
+  scale_color_manual(values = c("firebrick", "darkorange", "purple4")) +
+  labs(
+    title = "Patrones Comunes de Heterocedasticidad en los Residuos",
+    x = "Predichos / Variable Independiente (X)",
+    y = "Residuos (e)"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", size = 13)
+  )
+```
+
+Si observan, a medida que aumenta el valor de $X$, en el caso heterocedástico vemos que cada vez más aumenta el error. Esto podría suceder de forma de abanico creciente, decreciente o en forma de U, cualquiera de las tres mencionadas son casos de heterocedasticidad. Lo que a nosotros nos gustaría ver es que se forme una nube sin forma, que en promedio oscile en un valor constante para cada valor de $X$.
+
+## Consecuencias para MCO
+
+Las consecuencias que sufrirían nuestros parámetros estimados por MCO son que dejan de ser eficientes (ya no son BLUE) y la inferencia es inválida, pues, los estadísticos de prueba y los intervalos de confianza están ''manchados'' por este problema de heterocedasticidad.
+
+Entonces, en teoría los argumentos Gauss-Markov ya no se cumplen, por lo que necesitamos solucionar este problema, y para ello existen diversas soluciones, dentro de las cuales están:
+
+1) **Trasnformaciones de Variables:** Por ejemplo, si tenemos un modelo de Nivel-Nivel, podríamos transformarlo a Log-Log, lo cual podría ayudar a estabilizar la varianza de los residuos.
+2) **Mínimos Cuadrados Generalizados (MCG):** Este método es una extensión de MCO, que permite corregir la heterocedasticidad, pero requiere conocer la forma funcional de la heterocedasticidad.
+3) **Mínimos Cuadrados Ponderados (MCP):** Este método es una variante de MCG, que permite corregir la heterocedasticidad, pero requiere conocer la forma funcional de la heterocedasticidad.
+4) **Estimadores Robustos a Heterocedasticidad:** Este método es una variante de MCO, que permite corregir la heterocedasticidad, pero no requiere conocer la forma funcional de la heterocedasticidad. En R, se puede implementar con el paquete `sandwich`.
+
+## Detección de Heterocedasticidad
+
+Para detectar heterocedasticidad, existen dos maneras principales para detectarlo, las cuales son:
+
+1) **Test de Breusch-Pagan:** Este test es un test de hipótesis que busca determinar si la varianza de los residuos es constante o no. La hipótesis nula es que la varianza es constante (homocedasticidad) y la alternativa es que la varianza no es constante (heterocedasticidad). El estadístico de prueba sigue una distribución Chi-cuadrado con grados de libertad igual al número de variables independientes en el modelo.
+Matemáticamente, el test de Breusch-Pagan se puede expresar como:
+
+$$
+BP = n \cdot R^2_{\text{aux}}
+$$
+
+Donde el $R^2_{\text{aux}}$ es el $R^2$ de la regresión auxiliar, que se obtiene al regredir los residuos al cuadrado del modelo original sobre las variables independientes del modelo original, tal que:
+
+$$
+e_i^2 = \alpha + \beta_1 X_1 + \beta_2 X_2 + \epsilon_i
+$$
+
+La conclusión se obtiene a través de comparar el estadístico de prueba con el valor crítico de la distribución Chi-cuadrado con grados de libertad igual al número de variables independientes en el modelo. Si el estadístico de prueba es mayor que el valor crítico, se rechaza la hipótesis nula y se concluye que hay evidencia de heterocedasticidad.
+
+2) Test de White: Este test es un test de hipótesis que busca determinar si la varianza de los residuos es constante o no. La hipótesis nula es que la varianza es constante (homocedasticidad) y la alternativa es que la varianza no es constante (heterocedasticidad). El estadístico de prueba sigue una distribución Chi-cuadrado con grados de libertad igual al número de variables independientes en el modelo más el número de variables independientes al cuadrado.
+Matemáticamente el test de White es exactamente igual que el test de Breusch-Pagan, pero la diferencia es que en la regresión auxiliar se incluyen los términos al cuadrado y los términos de interacción de las variables independientes del modelo original, tal que:
+
+$$
+e_i^2 = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1^2 + \beta_4 X_2^2 + \beta_5 (X_1 \times X_2) + \epsilon_i
+$$
+
+Y la conclusión es exactamente la misma que en el test de Breusch-Pagan, se compara el estadístico de prueba con el valor crítico de la distribución Chi-cuadrado con grados de libertad igual al número de variables independientes en el modelo más el número de variables independientes al cuadrado. Si el estadístico de prueba es mayor que el valor crítico, se rechaza la hipótesis nula y se concluye que hay evidencia de heterocedasticidad.
