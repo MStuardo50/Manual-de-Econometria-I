@@ -19,26 +19,26 @@ bookdown::gitbook:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, child='capitulos/introduccion.rmd'}
+```{r, child='introduccion.rmd'}
 ```
 
-```{r, child='capitulos/01-regresion-simple.rmd'}
+```{r, child='01-regresion-simple.rmd'}
 ```
 
-```{r, child='capitulos/02-regresion-multiple.rmd'}
+```{r, child='02-regresion-multiple.rmd'}
 ```
 
-```{r, child='capitulos/03-variables-dummy.rmd'}
+```{r, child='03-variables-dummy.rmd'}
 ```
 
-```{r, child='capitulos/07-multicolinealidad.rmd'}
+```{r, child='07-multicolinealidad.rmd'}
 ```
 
-```{r, child='capitulos/04-heterocedasticidad.rmd'}
+```{r, child='04-heterocedasticidad.rmd'}
 ```
 
-```{r, child='capitulos/05-endogeneidad.rmd'}
+```{r, child='05-endogeneidad.rmd'}
 ```
 
-```{r, child='capitulos/06-anexos.Rmd'}
+```{r, child='06-anexos.Rmd'}
 ```
