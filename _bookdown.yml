@@ -1,0 +1,12 @@
+book_filename: "main"
+output_dir: "docs"
+delete_merged_file: true
+rmd_files:
+  - "index.Rmd"
+  - "01-regresion-simple.rmd"
+  - "02-regresion-multiple.rmd"
+  - "03-variables-dummy.rmd"
+  - "04-heterocedasticidad.rmd"
+  - "05-endogeneidad.rmd"
+  - "06-anexos.Rmd"
+  - "07-multicolinealidad.rmd"

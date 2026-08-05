@@ -21,24 +21,3 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r, child='introduccion.rmd'}
 ```
-
-```{r, child='01-regresion-simple.rmd'}
-```
-
-```{r, child='02-regresion-multiple.rmd'}
-```
-
-```{r, child='03-variables-dummy.rmd'}
-```
-
-```{r, child='07-multicolinealidad.rmd'}
-```
-
-```{r, child='04-heterocedasticidad.rmd'}
-```
-
-```{r, child='05-endogeneidad.rmd'}
-```
-
-```{r, child='06-anexos.Rmd'}
-```
