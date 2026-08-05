@@ -67,8 +67,6 @@ Ahora se realiza un test de hipótesis sobre el coeficiente $\gamma$:
 
 $$
 H_0: \gamma = 0 \quad \text{(La variable endógena es exógena, MCO es consistente)}
-$$      
-$$
 H_A: \gamma \neq 0 \quad \text{(La variable endógena es endógena, MCO es inconsistente y MC2E es consistente)}
 $$
 

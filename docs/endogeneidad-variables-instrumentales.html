@@ -131,6 +131,12 @@
 <li class="chapter" data-level="8.1.2" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-insesgadez-para-hatbeta_0-y-hatbeta_1"><i class="fa fa-check"></i><b>8.1.2</b> Demostración de Insesgadez para <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span></a></li>
 <li class="chapter" data-level="8.1.3" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-la-varianza-de-hatbeta_1"><i class="fa fa-check"></i><b>8.1.3</b> Demostración de la varianza de <span class="math inline">\(\hat{\beta}_1\)</span></a></li>
 </ul></li>
+<li class="chapter" data-level="8.2" data-path="anexo.html"><a href="anexo.html#regresi%C3%B3n-lineal-m%C3%BAltiple"><i class="fa fa-check"></i><b>8.2</b> Regresión Lineal Múltiple</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-del-estimador-del-vector-de-hatbeta-bajo-el-supuesto-de-homocedasticidad"><i class="fa fa-check"></i><b>8.2.1</b> Demostración del Estimador del Vector de <span class="math inline">\(\hat{\beta}\)</span> bajo el supuesto de Homocedasticidad</a></li>
+<li class="chapter" data-level="8.2.2" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-insesgadez-del-vector-de-hatbeta"><i class="fa fa-check"></i><b>8.2.2</b> Demostración de Insesgadez del Vector de <span class="math inline">\(\hat{\beta}\)</span></a></li>
+<li class="chapter" data-level="8.2.3" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-la-varianza-de-hatbeta-bajo-el-supuesto-de-homocedasticidad"><i class="fa fa-check"></i><b>8.2.3</b> Demostración de la Varianza de <span class="math inline">\(\hat{\beta}\)</span> bajo el supuesto de Homocedasticidad</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -211,8 +217,6 @@ Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \gamma\hat{v} + u
 <p>Ahora se realiza un test de hipótesis sobre el coeficiente <span class="math inline">\(\gamma\)</span>:</p>
 <p><span class="math display">\[
 H_0: \gamma = 0 \quad \text{(La variable endógena es exógena, MCO es consistente)}
-\]</span><br />
-<span class="math display">\[
 H_A: \gamma \neq 0 \quad \text{(La variable endógena es endógena, MCO es inconsistente y MC2E es consistente)}
 \]</span></p>
 <p>Se realiza un estadístico de prueba <span class="math inline">\(t\)</span> para el coeficiente <span class="math inline">\(\gamma\)</span> y se compara con el valor crítico correspondiente al nivel de significancia deseado. Si se rechaza la hipótesis nula, se concluye que la variable endógena es endógena y que los estimadores obtenidos a través de MCO son inconsistentes, por lo tanto, se debe utilizar MC2E para obtener estimadores consistentes.</p>

@@ -38,3 +38,7 @@ regresión-lineal-simple-1
 demostración-del-estimador-de-hatbeta_0-y-hatbeta_1-mediante-mco
 demostración-de-insesgadez-para-hatbeta_0-y-hatbeta_1
 demostración-de-la-varianza-de-hatbeta_1
+regresión-lineal-múltiple
+demostración-del-estimador-del-vector-de-hatbeta-bajo-el-supuesto-de-homocedasticidad
+demostración-de-insesgadez-del-vector-de-hatbeta
+demostración-de-la-varianza-de-hatbeta-bajo-el-supuesto-de-homocedasticidad

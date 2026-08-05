@@ -162,10 +162,186 @@ $$
 
 $$
 Var(\hat{\beta}_1 | X) = \frac{\sigma^2 \sum_{i=1}^{n}(x_i - \bar{x})^2}{\left(\sum_{i=1}^{n}(x_i - \bar{x})^2\right)^2}
-$$
+$$ 
 
 Simplificando el término del sumatorio y amplificando todo por $\frac{1}{n}$ tenemos que:
 
 $$
 Var(\hat{\beta_1}| X) = \frac{\sigma^2}{nVar(X)}
+$$
+
+## Regresión Lineal Múltiple
+
+### Demostración del Estimador del Vector de $\hat{\beta}$ bajo el supuesto de Homocedasticidad
+
+Partimos desde el problema a resolver:
+
+$$
+\text{Problema:} \quad \min_{\beta} \xi^T\xi
+$$
+
+Sabiendo que $Y = X\beta + \xi$, entonces, $\xi = Y - X\beta$, por tanto el problema se convierte en:
+
+$$
+\text{Problema:} \quad \min_{\beta} [Y-X\beta]^T[Y-X\beta]
+$$
+
+Por propiedades de matrices, trasponiendo $[Y - X\beta]$ se tiene que:
+
+$$
+\text{Problema:} \quad \min_{\beta} [Y^T - \beta^T X^T][Y-X\beta]
+$$
+
+Luego, distribuyendo el paréntesis se tiene que:
+
+$$
+\text{Problema:} \quad \min_{\beta} Y^TY - Y^TX\beta - \beta^T X^T Y + \beta^T X^T X \beta
+$$
+
+Dado que, cada término es igual a un escalar, es decir, una matriz $in \mathbb{M}_1$, entonces un término es igual a su propia transpuesta, por lo que el tercer término queda como:
+
+$$
+\text{Problema:} \quad \min_{\beta} Y^TY - Y^TX\beta - Y^TX\beta + \beta^T X^T X \beta
+$$
+
+Y por tanto reduciendo queda:
+
+$$
+\text{Problema:} \quad \min_{\beta} Y^TY - 2 Y^TX\beta + \beta^T X^T X \beta
+$$
+
+Ahora, para minimizar esto, debemos derivar todo con respecto a $\beta$, tal que:
+
+$$
+\frac{\partial \xi^T\xi}{\partial \beta} = 0
+$$
+
+Donde, derivando obtenemos:
+
+$$
+-2X^TY + 2X^TX\hat{\beta} = 0
+$$
+
+Factorizando y dividiendo a ambos lados por $2$ tenemos que:
+
+$$
+X^TY - X^TX\hat{\beta} = 0
+$$
+ 
+Luego, despejamos el término que contiene $\hat{\beta}$:
+
+$$
+X^TX\hat{\beta} = X^TY
+$$
+
+Utilizando la propiedad $AA^{-1} = I$, entonces multiplicamos a ambos lados **por la izquierda** por $(X^TX)^{-1}$, por lo tanto:
+
+$$
+\hat{\beta} = (X^TX)^{-1}X^TY
+$$
+
+### Demostración de Insesgadez del Vector de $\hat{\beta}$
+
+Sabemos que el vector de $\hat{\beta}$ está determinado por:
+
+$$
+\hat{\beta} = (X^TX)^{-1}X^TY
+$$
+
+y sabemos también que $Y = X\beta + \xi$, por lo que al reemplazar:
+
+$$
+\hat{\beta} = (X^TX)^{-1}X^T(X\beta + \xi)
+$$
+
+aplicando operador de esperanza a ambos lados, condicional a $X$ se tiene que:
+
+$$
+E[\hat{\beta}|X] = E[(X^TX)^{-1}X^T(X\beta + \xi)|X]
+$$
+
+aplicando propiedad distributiva se tiene que:
+
+$$
+E[\hat{\beta}|X] = E[(X^TX)^{-1}X^TX\beta + (X^TX)^{-1}X^T\xi|X]
+$$
+
+
+Ahora, sabiendo dos cosas:
+
+1. $AA^{-1} = I$
+2. $E(\xi|X) = 0$
+
+Podemos eliminar el segundo término, pues, es cero y el primer término se reduce a:
+
+$$
+E[\hat{\beta}|X] = E[\beta]
+$$
+
+Y la esperanza de una constante es simplemente la constante, por lo tanto queda demostrado que el estimador de beta es insesgado:
+
+$$
+E[\hat{\beta}|X] = \beta
+$$
+
+### Demostración de la Varianza de $\hat{\beta}$ bajo el supuesto de Homocedasticidad
+
+Por definición matricial, la varianza del estimador se puede escribir tal que:
+
+$$
+Var(\hat{\beta}|X) = E[\hat{\beta} - \beta][\hat{\beta} - \beta]^T
+$$
+
+Si nosotros volvemos hacia atrás sabemos que:
+
+$$
+\hat{\beta} = \beta + (X^TX)^{-1}X^T\xi
+$$
+
+Por tanto podemos definir que:
+
+$$
+\hat{\beta} - \beta = (X^TX)^{-1}X^T\xi
+$$
+
+Luego, en la fórmula matricial que definimos para la varianza, tenemos que:
+
+$$
+Var(\hat{\beta}|X) = E[(X^TX)^{-1}X^T\xi][(X^TX)^{-1}X^T\xi]^T
+$$
+
+Transponiendo el segundo paréntesis se tiene:
+
+$$
+Var(\hat{\beta}|X) = E[(X^TX)^{-1}X^T\xi][\xi^TX(X^TX)^{-1}]
+$$
+
+Multiplicando:
+
+$$
+Var(\hat{\beta}|X) = E[(X^TX)^{-1}X^T\xi\xi^TX(X^TX)^{-1}]
+$$
+
+Luego, todo lo que sea $X$ sale del operador de esperanza:
+
+$$
+Var(\hat{\beta}|X) = (X^TX)^{-1}X^TE[\xi\xi^T]X(X^TX)^{-1}
+$$
+
+Ahora bien, según el supuesto de homocedasticidad de Gauss-Markov $E[\xi\xi^T] = \sigma^2I$, por lo tanto se tiene que:
+
+$$
+Var(\hat{\beta}|X) = (X^TX)^{-1}X^T\sigma^2IX(X^TX)^{-1}
+$$
+
+Como la multiplicación por la matriz identidad es similar a multiplicar por 1, desaparece. Luego, como $\sigma^2$ es una constante, podemos colocarla hacia el frente, tal que:
+
+$$
+Var(\hat{\beta}|X) = \sigma^2(X^TX)^{-1}X^TX(X^TX)^{-1}
+$$
+
+Finalmente, usando propiedades de matrices, todo el término se reduce a:
+
+$$
+Var(\hat{\beta}|X) = \sigma^2(X^TX)^{-1}
 $$
