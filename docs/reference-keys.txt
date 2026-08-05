@@ -16,6 +16,9 @@ inferencia-estadística-1
 prueba-de-significancia-global
 prueba-de-significancia-de-combinaciones-de-parámetros
 múltiples-restricciones-lineales
+multicolinealidad
+multicolinealidad-perfecta
+multicolinealidad-no-perfecta
 variables-dummy
 modelo-de-regresión-simple-con-variables-dummy
 modelo-de-regresión-múltiple-con-variables-dummy
@@ -35,6 +38,3 @@ regresión-lineal-simple-1
 demostración-del-estimador-de-hatbeta_0-y-hatbeta_1-mediante-mco
 demostración-de-insesgadez-para-hatbeta_0-y-hatbeta_1
 demostración-de-la-varianza-de-hatbeta_1
-multicolinealidad
-multicolinealidad-perfecta
-multicolinealidad-no-perfecta
