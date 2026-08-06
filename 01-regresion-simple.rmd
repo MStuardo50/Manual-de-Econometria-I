@@ -45,7 +45,7 @@ Para que los estimadores de nuestro modelo obtenidos a través de Mínimos Cuadr
 5) **No Autocorrelación:** La autocorrelación de los residuos es 0 ($Cov(\varepsilon_1, \varepsilon_2) = 0$). \textbf{Nota: Este supuesto es más fuerte en Series de Tiempo.}
 6) **No Multicolinealidad Perfecta:** No debe existir una relación lineal perfecta entre las variables independientes, ni se puede escribir alguna variable como combinación lineal de otra. En el caso de la regresión simple, este supuesto se cumple automáticamente.
 
-En un capítulo más adelante veremos que ocurre si se viola el supuesto de \textbf{Heterocedasticidad} y de \textbf{Exogeniedad}.
+En un capítulo más adelante veremos que ocurre si se viola el supuesto de **Heterocedasticidad** y de **Exogeniedad**.
 
 ## Especificaciones
 
