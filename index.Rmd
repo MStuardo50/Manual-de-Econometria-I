@@ -1,32 +1,27 @@
 ---
 title: "Manual de Econometría I"
-author: "Maximiliano Stuardo & Joakina Quezada"
+author: "Joakina Quezada & Maximiliano Stuardo"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 description: "Manual práctico de Econometría I"
 ---
 
-bookdown::gitbook:
-  css: style.css
-  config:
-    toc:
-      collapse: section
-      scroll_highlight: yes
-      before: |
-        <li><a href="./">Manual de Econometría I</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado con bookdown</a></li>
-    download: ["pdf", "epub"]
-    sharing:
-      github: yes
-      facebook: no
-      twitter: no
-    page_navigation: yes
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Sobre los Autores
+
+## Joakina Quezada Mejía
+
+Estudiante de Ingeniería Comercial mención Economía / Macroeconometrista. Áreas de interés: Macroeconomía, Variables Macroeconómicas, Series de Tiempo.
+
+## Maximiliano Stuardo Marticorena
+
+<img src="https://github.com/MStuardo50.png" width="120px" style="border-radius: 50%; border: 2px solid #38bdf8; margin-bottom: 10px; float: right;"/>
+
+Estudiante de Ingeniería Comercial mención Economía / Microeconometrista. Áreas de interés: Microeconomía, Organización Industrial, Derecho de la Competencia, Microeconometría.
 
 # Introducción: ¿Qué es la Econometría? {-}
 

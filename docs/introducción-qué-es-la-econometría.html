@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Heterocedasticidad | Manual de Econometría I</title>
+  <title>Introducción: ¿Qué es la Econometría? | Manual de Econometría I</title>
   <meta name="description" content="Manual práctico de Econometría I" />
   <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Heterocedasticidad | Manual de Econometría I" />
+  <meta property="og:title" content="Introducción: ¿Qué es la Econometría? | Manual de Econometría I" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Manual práctico de Econometría I" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Heterocedasticidad | Manual de Econometría I" />
+  <meta name="twitter:title" content="Introducción: ¿Qué es la Econometría? | Manual de Econometría I" />
   
   <meta name="twitter:description" content="Manual práctico de Econometría I" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="variables-dummy.html"/>
-<link rel="next" href="endogeneidad-variables-instrumentales.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="regresión-lineal-simple.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -162,53 +162,25 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="heterocedasticidad" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> Heterocedasticidad<a href="heterocedasticidad.html#heterocedasticidad" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="definición-2" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Definición<a href="heterocedasticidad.html#definici%C3%B3n-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Anteriormente, por supuestos Gauss-Markov habíamos asumido que estábamos en presencia de homocedasticidad, es decir, la varianza de los residuos es constante. Pero, lamentablemente en la realidad esto es casi imposible que ocurra. Definimos anteriormente, la varianza del parámetro como:</p>
-<p><span class="math display">\[V(\widehat{\beta}) = (X^TX)^{-1}X^TE[UU^T]X(X^TX)^{-1}\]</span></p>
-<p>Donde asumíamos que <span class="math inline">\(E[UU^T] = \sigma^2I\)</span> obviamente por el supuesto de Homocedasticidad. En presencia de heterocedasticidad esto ya no ocurre, por lo que a esta expresión la denotaremos por <span class="math inline">\(\Omega\)</span>. Por tanto la varianza del parámetro queda como:</p>
-<p><span class="math display">\[V(\widehat{\beta}) =  (X^TX)^{-1}X^T\Omega X(X^TX)^{-1}\]</span></p>
-<p>Donde <span class="math inline">\(\Omega\)</span> es una matriz diagonal con elementos <span class="math inline">\(\sigma_i^2\)</span> en la diagonal, es decir, la varianza de los residuos no es constante. Por lo tanto, el estimador de MCO sigue siendo insesgado, pero ya no es eficiente. Por lo que necesitamos un estimador robusto a heterocedasticidad.</p>
-<p>Gráficamente, la heterocedasticidad se puede presentar de la siguiente forma:</p>
-<p><img src="main_files/figure-html/unnamed-chunk-5-1.png" alt="" width="864" style="display: block; margin: auto;" /></p>
-<p>Si observan, a medida que aumenta el valor de <span class="math inline">\(X\)</span>, en el caso heterocedástico vemos que cada vez más aumenta el error. Esto podría suceder de forma de abanico creciente, decreciente o en forma de U, cualquiera de las tres mencionadas son casos de heterocedasticidad. Lo que a nosotros nos gustaría ver es que se forme una nube sin forma, que en promedio oscile en un valor constante para cada valor de <span class="math inline">\(X\)</span>.</p>
+<div id="introducción-qué-es-la-econometría" class="section level1 unnumbered hasAnchor">
+<h1>Introducción: ¿Qué es la Econometría?<a href="introducción-qué-es-la-econometría.html#introducci%C3%B3n-qu%C3%A9-es-la-econometr%C3%ADa" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="definición-de-econometría" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Definición de Econometría<a href="introducción-qué-es-la-econometría.html#definici%C3%B3n-de-econometr%C3%ADa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La econometría es la disciplina que combina la teoría económica, la estadística y las matemáticas para analizar datos económicos y probar hipótesis. Su objetivo principal es cuantificar relaciones económicas y hacer predicciones basadas en modelos matemáticos.</p>
 </div>
-<div id="consecuencias-para-mco" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Consecuencias para MCO<a href="heterocedasticidad.html#consecuencias-para-mco" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Las consecuencias que sufrirían nuestros parámetros estimados por MCO son que dejan de ser eficientes (ya no son BLUE) y la inferencia es inválida, pues, los estadísticos de prueba y los intervalos de confianza están ‘’manchados’’ por este problema de heterocedasticidad.</p>
-<p>Entonces, en teoría los argumentos Gauss-Markov ya no se cumplen, por lo que necesitamos solucionar este problema, y para ello existen diversas soluciones, dentro de las cuales están:</p>
+<div id="importancia-de-la-econometría" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Importancia de la Econometría<a href="introducción-qué-es-la-econometría.html#importancia-de-la-econometr%C3%ADa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La importancia de la econometría radica en su capacidad para proporcionar herramientas que permiten a los economistas y analistas tomar decisiones informadas. A través del análisis de datos, la econometría ayuda a:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Trasnformaciones de Variables:</strong> Por ejemplo, si tenemos un modelo de Nivel-Nivel, podríamos transformarlo a Log-Log, lo cual podría ayudar a estabilizar la varianza de los residuos.</li>
-<li><strong>Mínimos Cuadrados Generalizados (MCG):</strong> Este método es una extensión de MCO, que permite corregir la heterocedasticidad, pero requiere conocer la forma funcional de la heterocedasticidad.</li>
-<li><strong>Mínimos Cuadrados Ponderados (MCP):</strong> Este método es una variante de MCG, que permite corregir la heterocedasticidad, pero requiere conocer la forma funcional de la heterocedasticidad.</li>
-<li><strong>Estimadores Robustos a Heterocedasticidad:</strong> Este método es una variante de MCO, que permite corregir la heterocedasticidad, pero no requiere conocer la forma funcional de la heterocedasticidad. En R, se puede implementar con el paquete <code>sandwich</code>.</li>
+<li>Evaluar políticas económicas.</li>
+<li>Predecir tendencias económicas.</li>
+<li>Identificar relaciones causales entre variables económicas.</li>
 </ol>
 </div>
-<div id="detección-de-heterocedasticidad" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Detección de Heterocedasticidad<a href="heterocedasticidad.html#detecci%C3%B3n-de-heterocedasticidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para detectar heterocedasticidad, existen dos maneras principales para detectarlo, las cuales son:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Test de Breusch-Pagan:</strong> Este test es un test de hipótesis que busca determinar si la varianza de los residuos es constante o no. La hipótesis nula es que la varianza es constante (homocedasticidad) y la alternativa es que la varianza no es constante (heterocedasticidad). El estadístico de prueba sigue una distribución Chi-cuadrado con grados de libertad igual al número de variables independientes en el modelo.
-Matemáticamente, el test de Breusch-Pagan se puede expresar como:</li>
-</ol>
-<p><span class="math display">\[
-BP = n \cdot R^2_{\text{aux}}
-\]</span></p>
-<p>Donde el <span class="math inline">\(R^2_{\text{aux}}\)</span> es el <span class="math inline">\(R^2\)</span> de la regresión auxiliar, que se obtiene al regredir los residuos al cuadrado del modelo original sobre las variables independientes del modelo original, tal que:</p>
-<p><span class="math display">\[
-e_i^2 = \alpha + \beta_1 X_1 + \beta_2 X_2 + \epsilon_i
-\]</span></p>
-<p>La conclusión se obtiene a través de comparar el estadístico de prueba con el valor crítico de la distribución Chi-cuadrado con grados de libertad igual al número de variables independientes en el modelo. Si el estadístico de prueba es mayor que el valor crítico, se rechaza la hipótesis nula y se concluye que hay evidencia de heterocedasticidad.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Test de White: Este test es un test de hipótesis que busca determinar si la varianza de los residuos es constante o no. La hipótesis nula es que la varianza es constante (homocedasticidad) y la alternativa es que la varianza no es constante (heterocedasticidad). El estadístico de prueba sigue una distribución Chi-cuadrado con grados de libertad igual al número de variables independientes en el modelo más el número de variables independientes al cuadrado.
-Matemáticamente el test de White es exactamente igual que el test de Breusch-Pagan, pero la diferencia es que en la regresión auxiliar se incluyen los términos al cuadrado y los términos de interacción de las variables independientes del modelo original, tal que:</li>
-</ol>
-<p><span class="math display">\[
-e_i^2 = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1^2 + \beta_4 X_2^2 + \beta_5 (X_1 \times X_2) + \epsilon_i
-\]</span></p>
-<p>Y la conclusión es exactamente la misma que en el test de Breusch-Pagan, se compara el estadístico de prueba con el valor crítico de la distribución Chi-cuadrado con grados de libertad igual al número de variables independientes en el modelo más el número de variables independientes al cuadrado. Si el estadístico de prueba es mayor que el valor crítico, se rechaza la hipótesis nula y se concluye que hay evidencia de heterocedasticidad.</p>
+<div id="correlación-y-causalidad" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Correlación y Causalidad<a href="introducción-qué-es-la-econometría.html#correlaci%C3%B3n-y-causalidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es fundamental entender la diferencia entre correlación y causalidad en econometría. La correlación indica que dos variables están relacionadas, pero no necesariamente que una cause la otra. La causalidad, por otro lado, implica que un cambio en una variable provoca un cambio en otra.</p>
+<p>Entonces, correlación no implica por ningún motivo causalidad. Por ejemplo, si observamos que el consumo de helado y los casos de insolación aumentan durante el verano, podemos decir que hay una correlación entre estas dos variables. Sin embargo, no podemos concluir que comer helado cause insolación; ambos fenómenos están relacionados con la temporada de verano.</p>
 
 </div>
 </div>
@@ -217,8 +189,8 @@ e_i^2 = \alpha + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1^2 + \beta_4 X_2^2 + \be
           </div>
         </div>
       </div>
-<a href="variables-dummy.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="endogeneidad-variables-instrumentales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresión-lineal-simple.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
