@@ -1,6 +1,4 @@
-sobre-los-autores
-joakina-quezada-mejía
-maximiliano-stuardo-marticorena
+section
 definición-de-econometría
 importancia-de-la-econometría
 correlación-y-causalidad
