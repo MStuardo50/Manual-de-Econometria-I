@@ -19,3 +19,8 @@ bookdown::gitbook:
       github: yes
       facebook: no
       twitter: no
+    download: ["pdf"]
+
+bookdown::pdf_book:
+  latex_engine: xelatex
+  keep_tex: yes
