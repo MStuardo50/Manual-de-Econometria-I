@@ -1,7 +1,7 @@
-book_filename: "main"
+book_filename: "manual"
 output_dir: "docs"
-resource_files: ["img"]
 delete_merged_file: true
+resource_files: ["img"]
 rmd_files:
   - "index.Rmd"
   - "01-regresion-simple.rmd"
