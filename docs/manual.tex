@@ -1,12 +1,10 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
+%
 \documentclass[
 ]{book}
-\usepackage{xcolor}
-\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -37,10 +35,9 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
+\usepackage{xcolor}
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{longtable,booktabs,array}
-\usepackage{caption}
-\captionsetup[table]{skip=6pt}
-\newcounter{none} % for unnumbered tables
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -52,29 +49,27 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\newsavebox\pandoc@box
-\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
-  \sbox\pandoc@box{#1}%
-  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
-  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
-  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
-  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
-  \else\usebox{\pandoc@box}%
-  \fi%
-}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htbp
+\makeatletter
 \def\fps@figure{htbp}
 \makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
-% fallback for those not using the hyperref driver hyperxmp:
-\makeatletter
-\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
-\makeatother
 \hypersetup{
   pdftitle={Manual de Econometría I},
   pdfauthor={Joakina Quezada \& Maximiliano Stuardo},
@@ -83,7 +78,7 @@
 
 \title{Manual de Econometría I}
 \author{Joakina Quezada \& Maximiliano Stuardo}
-\date{2026-08-11}
+\date{2026-08-12}
 
 \begin{document}
 \maketitle
@@ -110,11 +105,13 @@ Estudiante de Ingeniería Comercial mención Economía / Microeconometrista.
 \chapter*{Introducción: ¿Qué es la Econometría?}\label{introducciuxf3n-quuxe9-es-la-econometruxeda}
 \addcontentsline{toc}{chapter}{Introducción: ¿Qué es la Econometría?}
 
-\section{Definición de Econometría}\label{definiciuxf3n-de-econometruxeda}
+\section*{Definición de Econometría}\label{definiciuxf3n-de-econometruxeda}
+\addcontentsline{toc}{section}{Definición de Econometría}
 
 La econometría es la disciplina que combina la teoría económica, la estadística y las matemáticas para analizar datos económicos y probar hipótesis. Su objetivo principal es cuantificar relaciones económicas y hacer predicciones basadas en modelos matemáticos.
 
-\section{Importancia de la Econometría}\label{importancia-de-la-econometruxeda}
+\section*{Importancia de la Econometría}\label{importancia-de-la-econometruxeda}
+\addcontentsline{toc}{section}{Importancia de la Econometría}
 
 La importancia de la econometría radica en su capacidad para proporcionar herramientas que permiten a los economistas y analistas tomar decisiones informadas. A través del análisis de datos, la econometría ayuda a:
 
@@ -129,7 +126,8 @@ La importancia de la econometría radica en su capacidad para proporcionar herra
   Identificar relaciones causales entre variables económicas.
 \end{enumerate}
 
-\section{Correlación y Causalidad}\label{correlaciuxf3n-y-causalidad}
+\section*{Correlación y Causalidad}\label{correlaciuxf3n-y-causalidad}
+\addcontentsline{toc}{section}{Correlación y Causalidad}
 
 Es fundamental entender la diferencia entre correlación y causalidad en econometría. La correlación indica que dos variables están relacionadas, pero no necesariamente que una cause la otra. La causalidad, por otro lado, implica que un cambio en una variable provoca un cambio en otra.
 
@@ -148,6 +146,10 @@ Y = \beta_0 + \beta_1X + \varepsilon
 Donde tendremos a \(\beta_0\) como intercepto, \(\beta_1\) como la pendiente de esta recta y por último un término de error \(\varepsilon\) que interpretaremos más adelante.
 
 La idea de hacer esto es la siguiente:
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 4.4.3
+\end{verbatim}
 
 \begin{verbatim}
 ## `geom_smooth()` using formula = 'y ~ x'
@@ -225,7 +227,6 @@ Luego, se compara el valor absoluto del estadístico \(|t_c|\) con el valor crí
 
 Para la distribución Normal Estándar, los valores críticos bilaterales más comunes son:
 
-{\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}ll@{}}
 \toprule\noalign{}
 Nivel de Significancia & Valor Crítico \\
@@ -237,7 +238,6 @@ Nivel de Significancia & Valor Crítico \\
 5\% & 1.960 \\
 1\% & 2.576 \\
 \end{longtable}
-}
 
 El criterio de rechazo es: Si \(|t_c| > t_{critico}\), existe evidencia estadística suficiente para rechazar la hipótesis nula (\(H_0\)), lo que significa que el parámetro estimado es \textbf{estadísticamente significativo} a un nivel de confianza del \((1-\alpha)\%\).
 
@@ -1160,7 +1160,7 @@ Luego derivamos con respecto a la variable \(\beta\) y a \(\lambda\) tal que:
 Donde la segunda ecuación corresponde a \(R\beta = q\), es decir, la restricción. Por otra parte tenemos que:
 
 \[
-\frac{\partial \mathcal{L}}{\partial \lambda} = -2X^TY + 2X^TX\beta + 2R^T\lambda = 0
+\frac{\partial \mathcal{L}}{\partial \beta} = -2X^TY + 2X^TX\beta + 2R^T\lambda = 0
 \]
 
 Despejando
