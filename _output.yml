@@ -1,0 +1,21 @@
+bookdown::gitbook:
+  css: style.css
+  highlight: pygments
+  config:
+    toc:
+      collapse: section
+      scroll_highlight: yes
+      before: |
+        <li><a href="./"><b>📘 Manual Econometría I</b></a></li>
+        <li><a href="./" style="font-size: 0.85em; opacity: 0.8;">Maximiliano S. & Joakina Q.</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="_blank">Publicado con Bookdown</a></li>
+    search: yes
+    fontsettings:
+      theme: white
+      family: sans
+      size: 2
+    sharing:
+      github: yes
+      facebook: no
+      twitter: no

@@ -1,5 +1,6 @@
 book_filename: "main"
 output_dir: "docs"
+resource_files: ["img"]
 delete_merged_file: true
 rmd_files:
   - "index.Rmd"

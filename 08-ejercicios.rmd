@@ -1,0 +1,31 @@
+# Ejercicios
+
+## Parte I: Comentes
+
+1. En el modelo de regresión simple yi = β0 + β1xi + ui, si la varianza muestral de
+la variable explicativa x aumenta (manteniendo todo lo demás constante), la varianza del
+estimador MCO de $\beta_1$ también aumenta.
+
+2. En el contexto del modelo de regresión simple, que el estimador MCO de β1
+sea insesgado implica necesariamente que también es el mejor estimador lineal insesgado
+(MELI).
+
+3. Un un modelo log-log de la forma $ln(y_i) = \beta_0 + \beta_1ln(x_i) + u_i$, el coeficiente $\hat{\beta_1}$
+mide el cambio en y (en las unidades de y) cuando x aumenta en una unidad.
+
+4. Un investigador analiza datos de comunas chilenas y encuentra una correlación
+positiva entre el número de hospitales per cápita y la tasa de mortalidad (por cada 1.000
+habitantes). Concluye que construir más hospitales causa mayor mortalidad. Comente
+esta conclusión.
+
+## Parte II: Matemáticos
+
+### Modelos de Regresión Lineal Simple
+
+### Modelos de Regresión Lineal Múltiple
+
+### Modelos con Variables Dummy
+
+### Modelos con Heterocedasticidad
+
+### Modelos con Endogeneidad

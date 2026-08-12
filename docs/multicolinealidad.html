@@ -60,6 +60,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -72,11 +73,16 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre los Autores</a>
+<li><a href="./"><b>📘 Manual Econometría I</b></a></li>
+<li><a href="./" style="font-size: 0.85em; opacity: 0.8;">Maximiliano S. & Joakina Q.</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre los Autores</a></li>
+<li class="chapter" data-level="" data-path="introducción-qué-es-la-econometría.html"><a href="introducción-qué-es-la-econometría.html"><i class="fa fa-check"></i>Introducción: ¿Qué es la Econometría?</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#definici%C3%B3n-de-econometr%C3%ADa"><i class="fa fa-check"></i><b>0.1</b> Definición de Econometría</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#importancia-de-la-econometr%C3%ADa"><i class="fa fa-check"></i><b>0.2</b> Importancia de la Econometría</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#correlaci%C3%B3n-y-causalidad"><i class="fa fa-check"></i><b>0.3</b> Correlación y Causalidad</a></li>
+<li class="chapter" data-level="0.1" data-path="introducción-qué-es-la-econometría.html"><a href="introducción-qué-es-la-econometría.html#definici%C3%B3n-de-econometr%C3%ADa"><i class="fa fa-check"></i><b>0.1</b> Definición de Econometría</a></li>
+<li class="chapter" data-level="0.2" data-path="introducción-qué-es-la-econometría.html"><a href="introducción-qué-es-la-econometría.html#importancia-de-la-econometr%C3%ADa"><i class="fa fa-check"></i><b>0.2</b> Importancia de la Econometría</a></li>
+<li class="chapter" data-level="0.3" data-path="introducción-qué-es-la-econometría.html"><a href="introducción-qué-es-la-econometría.html#correlaci%C3%B3n-y-causalidad"><i class="fa fa-check"></i><b>0.3</b> Correlación y Causalidad</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html"><i class="fa fa-check"></i><b>1</b> Regresión Lineal Simple</a>
 <ul>
@@ -141,6 +147,9 @@
 <li class="chapter" data-level="7.2.3" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-la-varianza-de-hatbeta-bajo-el-supuesto-de-homocedasticidad"><i class="fa fa-check"></i><b>7.2.3</b> Demostración de la Varianza de <span class="math inline">\(\hat{\beta}\)</span> bajo el supuesto de Homocedasticidad</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Publicado con Bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -194,7 +203,7 @@ Donde <span class="math inline">\(R^2_j\)</span> corresponde al R-cuadrado de un
 <p><span class="math display">\[X_j = \gamma_0 + \gamma_1X_1 + \gamma_2X_2 + ... + \gamma_nX_n + u\]</span>
 Si analizamos esto, podemos ver que si los demás regresores explican completamente la variable, es decir <span class="math inline">\(R^2_j = 1\)</span>, entonces <span class="math inline">\(VIF \rightarrow \infty\)</span>, y por otra parte si los demás regresores no explican nada de la variable, es decir, <span class="math inline">\(R^2_j = 0\)</span>, entonces <span class="math inline">\(VIF = 0\)</span>, por lo tanto no existe multicolinealidad. Como el <span class="math inline">\(R^2 \in \{0,1\}\)</span> entonces el dominio del <span class="math inline">\(VIF\)</span> es <span class="math inline">\(Dom: \{0,1\}\)</span> y el <span class="math inline">\(VIF\)</span> puede tomar valores en el intervalo <span class="math inline">\([0,\infty[\)</span>.</p>
 <p>Gráficamente el <span class="math inline">\(VIF\)</span> se ve de la siguiente manera:</p>
-<p><img src="main_files/figure-html/unnamed-chunk-1-1.png" alt="" width="672" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-2-1.png" alt="" width="672" /></p>
 <p>Una ‘’solución’’ a la multicolinealidad es eliminar la variable que genera multicolinealidad, con el riesgo de tener sesgo por variable omitida. En teoría con esto tenemos un trade-off entre multicolinealidad y sesgo, el cual depende necesariamente de la pregunta de investigación o propósito de realizar el modelo.</p>
 
 </div>
@@ -220,9 +229,9 @@ Si analizamos esto, podemos ver que si los demás regresores explican completame
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
   "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
+    "github": true,
+    "facebook": false,
+    "twitter": false,
     "linkedin": false,
     "weibo": false,
     "instapaper": false,
@@ -253,7 +262,8 @@ gitbook.start({
     "options": null
   },
   "toc": {
-    "collapse": "subsection"
+    "collapse": "section",
+    "scroll_highlight": true
   }
 });
 });

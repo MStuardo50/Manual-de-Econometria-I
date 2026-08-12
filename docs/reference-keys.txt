@@ -18,6 +18,7 @@ múltiples-restricciones-lineales
 multicolinealidad
 multicolinealidad-perfecta
 multicolinealidad-no-perfecta
+factor-inflacionario-de-la-varianza
 variables-dummy
 modelo-de-regresión-simple-con-variables-dummy
 modelo-de-regresión-múltiple-con-variables-dummy
@@ -41,4 +42,3 @@ regresión-lineal-múltiple
 demostración-del-estimador-del-vector-de-hatbeta-bajo-el-supuesto-de-homocedasticidad
 demostración-de-insesgadez-del-vector-de-hatbeta
 demostración-de-la-varianza-de-hatbeta-bajo-el-supuesto-de-homocedasticidad
-factor-inflacionario-de-la-varianza
