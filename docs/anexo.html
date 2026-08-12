@@ -145,6 +145,7 @@
 <li class="chapter" data-level="7.2.1" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-del-estimador-del-vector-de-hatbeta-bajo-el-supuesto-de-homocedasticidad"><i class="fa fa-check"></i><b>7.2.1</b> Demostración del Estimador del Vector de <span class="math inline">\(\hat{\beta}\)</span> bajo el supuesto de Homocedasticidad</a></li>
 <li class="chapter" data-level="7.2.2" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-insesgadez-del-vector-de-hatbeta"><i class="fa fa-check"></i><b>7.2.2</b> Demostración de Insesgadez del Vector de <span class="math inline">\(\hat{\beta}\)</span></a></li>
 <li class="chapter" data-level="7.2.3" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-la-varianza-de-hatbeta-bajo-el-supuesto-de-homocedasticidad"><i class="fa fa-check"></i><b>7.2.3</b> Demostración de la Varianza de <span class="math inline">\(\hat{\beta}\)</span> bajo el supuesto de Homocedasticidad</a></li>
+<li class="chapter" data-level="7.2.4" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-tildebeta"><i class="fa fa-check"></i><b>7.2.4</b> Demostración de <span class="math inline">\(\tilde{\beta}\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -415,6 +416,64 @@ Var(\hat{\beta}|X) = \sigma^2(X^TX)^{-1}X^TX(X^TX)^{-1}
 <p><span class="math display">\[
 Var(\hat{\beta}|X) = \sigma^2(X^TX)^{-1}
 \]</span></p>
+</div>
+<div id="demostración-de-tildebeta" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Demostración de <span class="math inline">\(\tilde{\beta}\)</span><a href="anexo.html#demostraci%C3%B3n-de-tildebeta" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se formaliza el problema de la siguiente manera:</p>
+<p><span class="math display">\[
+\text{Problema:} \quad \min_{\beta} \xi^T\xi
+\]</span>
+<span class="math display">\[
+\text{s.a} R\beta = q
+\]</span></p>
+<p>Donde <span class="math inline">\(R\)</span> es la matriz de coeficientes de las restricciones que queremos estudiar y <span class="math inline">\(q\)</span> es el lado derecho de la restricción.
+Se arma el Lagrangeano de la siguiente manera (Sabiendo que la función objetivo corresponde a algo que hemos visto antes, lo que es <span class="math inline">\(Y^TY - 2 Y^TX\beta + \beta^T X^T X \beta\)</span>):</p>
+<p><span class="math display">\[
+\mathcal{L} =  Y^TY - 2 Y^TX\beta + \beta^T X^T X \beta + 2\lambda^T(R\beta - q)
+\]</span></p>
+<p>Luego derivamos con respecto a la variable <span class="math inline">\(\beta\)</span> y a <span class="math inline">\(\lambda\)</span> tal que:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \beta} = 0 \land \frac{\partial \mathcal{L}}{\partial \lambda} = 0
+\]</span></p>
+<p>Donde la segunda ecuación corresponde a <span class="math inline">\(R\beta = q\)</span>, es decir, la restricción. Por otra parte tenemos que:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \lambda} = -2X^TY + 2X^TX\beta + 2R^T\lambda = 0
+\]</span></p>
+<p>Despejando</p>
+<p><span class="math display">\[
+-X^TY + X^TX\beta + R^T\lambda = 0
+\]</span></p>
+<p><span class="math display">\[
+X^TX\beta = X^TY -R^T\lambda
+\]</span></p>
+<p>Multiplicando por <span class="math inline">\((X^TX)^{-1}\)</span> por la izquierda obtenemos:</p>
+<p><span class="math display">\[
+\widetilde{\beta} = (X^TX)^{-1}X^TY - (X^TX)^{-1}R^T\lambda
+\]</span></p>
+<p><span class="math display">\[
+\widetilde{\beta} = \hat{\beta} - (X^TX)^{-1}R^T\lambda
+\]</span></p>
+<p>Luego, para hallar el valor de <span class="math inline">\(\lambda\)</span>, mutliplicamos la ecuación obtenida anteriormente por la matriz de restricciones <span class="math inline">\(R\)</span>:</p>
+<p><span class="math display">\[
+R\widetilde{\beta} = R\hat{\beta} - R(X^TX)^{-1}R^T\lambda
+\]</span></p>
+<p>Como sabemos que <span class="math inline">\(R\beta = q\)</span> entonces:</p>
+<p><span class="math display">\[
+q = R\hat{\beta} - R(X^TX)^{-1}R^T\lambda
+\]</span></p>
+<p>Despejando:</p>
+<p><span class="math display">\[
+R(X^TX)^{-1}R^T\lambda = R\hat{\beta} - q
+\]</span></p>
+<p>Como la matriz <span class="math inline">\(R\)</span> tiene rango completo, entonces existe necesariamente la inversa de dicha matriz, por lo tanto:</p>
+<p><span class="math display">\[
+\lambda = [R(X^TX)^-1R^T]^{-1}(R\hat{\beta}-q)
+\]</span></p>
+<p>Sustituyendo <span class="math inline">\(\lambda\)</span> en la primera ecuación, finalmente obtenemos:</p>
+<p><span class="math display">\[
+\widetilde{\beta} = \hat{\beta} - (X^TX)^{-1}R^T[R(X^TX)^-1R^T]^{-1}(R\hat{\beta}-q)
+\]</span></p>
+<p>Donde, en resumidas cuentas, el estimador de MCR es igual al de MCO pero con una corrección proporcional al tamaño del error de la hipótesis. En el supuesto de que, las restricciones fuesen ciertas, entonces esa corrección sería 0 y por lo tanto el estimador de MCR es igual al estimador de MCO.</p>
 
 </div>
 </div>
