@@ -1133,4 +1133,86 @@ Finalmente, usando propiedades de matrices, todo el término se reduce a:
 Var(\hat{\beta}|X) = \sigma^2(X^TX)^{-1}
 \]
 
+\subsection{\texorpdfstring{Demostración de \(\tilde{\beta}\)}{Demostración de \textbackslash tilde\{\textbackslash beta\}}}\label{demostraciuxf3n-de-tildebeta}
+
+Se formaliza el problema de la siguiente manera:
+
+\[
+\text{Problema:} \quad \min_{\beta} \xi^T\xi
+\]
+\[
+\text{s.a} R\beta = q
+\]
+
+Donde \(R\) es la matriz de coeficientes de las restricciones que queremos estudiar y \(q\) es el lado derecho de la restricción.
+Se arma el Lagrangeano de la siguiente manera (Sabiendo que la función objetivo corresponde a algo que hemos visto antes, lo que es \(Y^TY - 2 Y^TX\beta + \beta^T X^T X \beta\)):
+
+\[
+\mathcal{L} =  Y^TY - 2 Y^TX\beta + \beta^T X^T X \beta + 2\lambda^T(R\beta - q)
+\]
+
+Luego derivamos con respecto a la variable \(\beta\) y a \(\lambda\) tal que:
+
+\[
+\frac{\partial \mathcal{L}}{\partial \beta} = 0 \land \frac{\partial \mathcal{L}}{\partial \lambda} = 0
+\]
+
+Donde la segunda ecuación corresponde a \(R\beta = q\), es decir, la restricción. Por otra parte tenemos que:
+
+\[
+\frac{\partial \mathcal{L}}{\partial \lambda} = -2X^TY + 2X^TX\beta + 2R^T\lambda = 0
+\]
+
+Despejando
+
+\[
+-X^TY + X^TX\beta + R^T\lambda = 0
+\]
+
+\[
+X^TX\beta = X^TY -R^T\lambda
+\]
+
+Multiplicando por \((X^TX)^{-1}\) por la izquierda obtenemos:
+
+\[
+\widetilde{\beta} = (X^TX)^{-1}X^TY - (X^TX)^{-1}R^T\lambda
+\]
+
+\[
+\widetilde{\beta} = \hat{\beta} - (X^TX)^{-1}R^T\lambda
+\]
+
+Luego, para hallar el valor de \(\lambda\), mutliplicamos la ecuación obtenida anteriormente por la matriz de restricciones \(R\):
+
+\[
+R\widetilde{\beta} = R\hat{\beta} - R(X^TX)^{-1}R^T\lambda
+\]
+
+Como sabemos que \(R\beta = q\) entonces:
+
+\[
+q = R\hat{\beta} - R(X^TX)^{-1}R^T\lambda
+\]
+
+Despejando:
+
+\[
+R(X^TX)^{-1}R^T\lambda = R\hat{\beta} - q 
+\]
+
+Como la matriz \(R\) tiene rango completo, entonces existe necesariamente la inversa de dicha matriz, por lo tanto:
+
+\[
+\lambda = [R(X^TX)^-1R^T]^{-1}(R\hat{\beta}-q)
+\]
+
+Sustituyendo \(\lambda\) en la primera ecuación, finalmente obtenemos:
+
+\[
+\widetilde{\beta} = \hat{\beta} - (X^TX)^{-1}R^T[R(X^TX)^-1R^T]^{-1}(R\hat{\beta}-q)
+\]
+
+Donde, en resumidas cuentas, el estimador de MCR es igual al de MCO pero con una corrección proporcional al tamaño del error de la hipótesis. En el supuesto de que, las restricciones fuesen ciertas, entonces esa corrección sería 0 y por lo tanto el estimador de MCR es igual al estimador de MCO.
+
 \end{document}
