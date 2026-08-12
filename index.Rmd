@@ -4,6 +4,7 @@ author: "Joakina Quezada & Maximiliano Stuardo"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
+geometry: "left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm"
 description: "Manual práctico de Econometría I"
 ---
 
