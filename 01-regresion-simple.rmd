@@ -12,7 +12,7 @@ Donde tendremos a $\beta_0$ como intercepto, $\beta_1$ como la pendiente de esta
 
 La idea de hacer esto es la siguiente:
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.width=7, fig.height=4.5, out.width="100%", fig.align="center"}
 library(ggplot2)
 
 ggplot(data = mtcars, aes(x = wt, y = mpg)) +

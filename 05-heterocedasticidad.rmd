@@ -14,7 +14,7 @@ Donde $\Omega$ es una matriz diagonal con elementos $\sigma_i^2$ en la diagonal,
 
 Gráficamente, la heterocedasticidad se puede presentar de la siguiente forma:
 
-```{r, fig.align='center', fig.width=9, fig.height=4.5, echo=FALSE}
+```{r, fig.width=7, fig.height=4.5, out.width="100%", fig.align="center", echo=FALSE}
 library(ggplot2)
 
 set.seed(123)

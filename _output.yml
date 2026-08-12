@@ -19,7 +19,7 @@ bookdown::gitbook:
       github: yes
       facebook: no
       twitter: no
-    download: ["pdf"]
+      download: ["manual.pdf"]
 
 bookdown::pdf_book:
   latex_engine: xelatex

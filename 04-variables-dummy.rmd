@@ -25,7 +25,7 @@ $$
 La interpretación de $\beta_1$ es el cambio en los ingresos esperado al cambiar de mujer a hombre. Gráficamente, el modelo se ve de la siguiente manera:
 
 
-```{r, fig.align='center', fig.width=7, fig.height=4.5, echo=FALSE}
+```{r, fig.width=7, fig.height=4.5, out.width="100%", fig.align="center", echo=FALSE}
 library(ggplot2)
 
 # 1. Datos para el modelo simple Y = beta0 + beta1*D + e
@@ -77,7 +77,7 @@ La interpretación de $\beta_1$ es el cambio en los ingresos esperado al cambiar
 
 Gráficamente, el modelo se ve de la siguiente manera:
 
-```{r, fig.align='center', fig.width=7, fig.height=4.5, echo=FALSE}
+```{r, fig.width=7, fig.height=4.5, out.width="100%", fig.align="center", echo=FALSE}
 library(ggplot2)
 
 # 1. Simulación de datos para el modelo Y = beta0 + beta1*D + beta2*X + e
@@ -135,7 +135,7 @@ $$
 
 Gráficamente, el modelo con interacción se ve de la siguiente manera:
 
-```{r, fig.align='center', fig.width=7, fig.height=4.5, echo=FALSE}
+```{r, fig.width=7, fig.height=4.5, out.width="100%", fig.align="center", echo=FALSE}
 library(ggplot2)
 
 # 1. Simulación de datos para Y = beta0 + beta1*D + beta2*X + beta3*(D*X) + e

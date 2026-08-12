@@ -203,7 +203,7 @@ Donde <span class="math inline">\(R^2_j\)</span> corresponde al R-cuadrado de un
 <p><span class="math display">\[X_j = \gamma_0 + \gamma_1X_1 + \gamma_2X_2 + ... + \gamma_nX_n + u\]</span>
 Si analizamos esto, podemos ver que si los demás regresores explican completamente la variable, es decir <span class="math inline">\(R^2_j = 1\)</span>, entonces <span class="math inline">\(VIF \rightarrow \infty\)</span>, y por otra parte si los demás regresores no explican nada de la variable, es decir, <span class="math inline">\(R^2_j = 0\)</span>, entonces <span class="math inline">\(VIF = 0\)</span>, por lo tanto no existe multicolinealidad. Como el <span class="math inline">\(R^2 \in \{0,1\}\)</span> entonces el dominio del <span class="math inline">\(VIF\)</span> es <span class="math inline">\(Dom: \{0,1\}\)</span> y el <span class="math inline">\(VIF\)</span> puede tomar valores en el intervalo <span class="math inline">\([0,\infty[\)</span>.</p>
 <p>Gráficamente el <span class="math inline">\(VIF\)</span> se ve de la siguiente manera:</p>
-<p><img src="manual_files/figure-html/unnamed-chunk-2-1.png" alt="" width="672" /></p>
+<p><img src="manual_files/figure-html/unnamed-chunk-2-1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
 <p>Una ‘’solución’’ a la multicolinealidad es eliminar la variable que genera multicolinealidad, con el riesgo de tener sesgo por variable omitida. En teoría con esto tenemos un trade-off entre multicolinealidad y sesgo, el cual depende necesariamente de la pregunta de investigación o propósito de realizar el modelo.</p>
 
 </div>
@@ -237,7 +237,8 @@ gitbook.start({
     "instapaper": false,
     "vk": false,
     "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+    "download": "manual.pdf"
   },
   "fontsettings": {
     "theme": "white",

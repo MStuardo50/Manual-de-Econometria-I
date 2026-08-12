@@ -152,7 +152,7 @@ La idea de hacer esto es la siguiente:
 ## `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\pandocbounded{\includegraphics[keepaspectratio]{manual_files/manual_files/figure-latex/unnamed-chunk-1-1.pdf}}
+\begin{center}\includegraphics[width=1\linewidth]{manual_files/figure-latex/unnamed-chunk-1-1} \end{center}
 
 Teniendo un set de datos donde tenemos muchos puntos dispersos (podrían ser muestras pequeñas, o muestras enormes), intentaremos encontrar la recta que \textbf{minimiza la suma cuadrática de los errores}. En primer lugar, se hace con el cuadrado de los errores ya que la suma de los errores es cero. (Ver demostración en Anexo). Y en segundo lugar, minimizar la suma cuadrática de los errores es, ajustar la recta para que los errores que cometemos en nuestra estimación no sean ni tan grandes, ni tan pequeños, definiendo así el método de estimación por \textbf{Mínimos Cuadrados Ordinarios (MCO)}. Los estimadores para \(\hat{\beta_0}\) y \(\hat{\beta_1}\) son (revisar demostración en Anexo):
 
@@ -502,7 +502,7 @@ Si analizamos esto, podemos ver que si los demás regresores explican completame
 
 Gráficamente el \(VIF\) se ve de la siguiente manera:
 
-\pandocbounded{\includegraphics[keepaspectratio]{manual_files/manual_files/figure-latex/unnamed-chunk-2-1.pdf}}
+\begin{center}\includegraphics[width=1\linewidth]{manual_files/figure-latex/unnamed-chunk-2-1} \end{center}
 
 Una `'solución'\,' a la multicolinealidad es eliminar la variable que genera multicolinealidad, con el riesgo de tener sesgo por variable omitida. En teoría con esto tenemos un trade-off entre multicolinealidad y sesgo, el cual depende necesariamente de la pregunta de investigación o propósito de realizar el modelo.
 
@@ -532,7 +532,7 @@ E(Y | D=0) = \beta_0
 
 La interpretación de \(\beta_1\) es el cambio en los ingresos esperado al cambiar de mujer a hombre. Gráficamente, el modelo se ve de la siguiente manera:
 
-\begin{center}\includegraphics{manual_files/figure-latex/unnamed-chunk-3-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{manual_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 \section{Modelo de Regresión Múltiple con Variables Dummy}\label{modelo-de-regresiuxf3n-muxfaltiple-con-variables-dummy}
 
@@ -562,7 +562,7 @@ Gráficamente, el modelo se ve de la siguiente manera:
 ## `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\begin{center}\includegraphics{manual_files/figure-latex/unnamed-chunk-4-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{manual_files/figure-latex/unnamed-chunk-4-1} \end{center}
 
 \section{Interacciones}\label{interacciones}
 
@@ -597,7 +597,7 @@ Gráficamente, el modelo con interacción se ve de la siguiente manera:
 ## `geom_smooth()` using formula = 'y ~ x'
 \end{verbatim}
 
-\begin{center}\includegraphics{manual_files/figure-latex/unnamed-chunk-5-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{manual_files/figure-latex/unnamed-chunk-5-1} \end{center}
 
 \chapter{Heterocedasticidad}\label{heterocedasticidad}
 
@@ -615,7 +615,7 @@ Donde \(\Omega\) es una matriz diagonal con elementos \(\sigma_i^2\) en la diago
 
 Gráficamente, la heterocedasticidad se puede presentar de la siguiente forma:
 
-\begin{center}\includegraphics{manual_files/figure-latex/unnamed-chunk-6-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{manual_files/figure-latex/unnamed-chunk-6-1} \end{center}
 
 Si observan, a medida que aumenta el valor de \(X\), en el caso heterocedástico vemos que cada vez más aumenta el error. Esto podría suceder de forma de abanico creciente, decreciente o en forma de U, cualquiera de las tres mencionadas son casos de heterocedasticidad. Lo que a nosotros nos gustaría ver es que se forme una nube sin forma, que en promedio oscile en un valor constante para cada valor de \(X\).
 

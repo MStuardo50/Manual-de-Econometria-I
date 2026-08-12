@@ -178,7 +178,7 @@ Y = \beta_0 + \beta_1X + \varepsilon
 <p>Donde tendremos a <span class="math inline">\(\beta_0\)</span> como intercepto, <span class="math inline">\(\beta_1\)</span> como la pendiente de esta recta y por último un término de error <span class="math inline">\(\varepsilon\)</span> que interpretaremos más adelante.</p>
 <p>La idea de hacer esto es la siguiente:</p>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="manual_files/figure-html/unnamed-chunk-1-1.png" alt="" width="672" /></p>
+<p><img src="manual_files/figure-html/unnamed-chunk-1-1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
 <p>Teniendo un set de datos donde tenemos muchos puntos dispersos (podrían ser muestras pequeñas, o muestras enormes), intentaremos encontrar la recta que . En primer lugar, se hace con el cuadrado de los errores ya que la suma de los errores es cero. (Ver demostración en Anexo). Y en segundo lugar, minimizar la suma cuadrática de los errores es, ajustar la recta para que los errores que cometemos en nuestra estimación no sean ni tan grandes, ni tan pequeños, definiendo así el método de estimación por . Los estimadores para <span class="math inline">\(\hat{\beta_0}\)</span> y <span class="math inline">\(\hat{\beta_1}\)</span> son (revisar demostración en Anexo):</p>
 <p><span class="math display">\[
 \hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}
@@ -280,7 +280,8 @@ gitbook.start({
     "instapaper": false,
     "vk": false,
     "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+    "download": "manual.pdf"
   },
   "fontsettings": {
     "theme": "white",

@@ -54,7 +54,7 @@ Si analizamos esto, podemos ver que si los demás regresores explican completame
 
 Gráficamente el $VIF$ se ve de la siguiente manera:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width=7, fig.height=4.5, out.width="100%", fig.align="center"}
 # 1. Definir la función matemática del VIF
 vif_funcion <- function(x) { 1 / (1 - x) }
 
