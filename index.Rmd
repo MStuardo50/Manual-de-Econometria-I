@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <div>
 <h3 style="margin: 0 0 8px 0; color: #0f172a; font-size: 1.1em;">Joakina Quezada Mejía</h3>
 <p style="margin: 0 0 6px 0; color: #334155; font-size: 0.9em; font-weight: 600;">Estudiante de Ingeniería Comercial mención Economía / Macroeconometrista.</p>
-<p style="margin: 0; color: #64748b; font-size: 0.85em;"><strong style="color: #0284c7;">Áreas de interés:</strong> Macroeconomía, Variables Macroeconómicas, Series de Tiempo.</p>
+<p style="margin: 0; color: #64748b; font-size: 0.85em;"><strong style="color: #0284c7;">Áreas de interés:</strong> Macroeconomía, Variables Macroeconómicas.</p>
 </div>
 </div>
 
