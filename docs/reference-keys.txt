@@ -41,3 +41,4 @@ regresión-lineal-múltiple
 demostración-del-estimador-del-vector-de-hatbeta-bajo-el-supuesto-de-homocedasticidad
 demostración-de-insesgadez-del-vector-de-hatbeta
 demostración-de-la-varianza-de-hatbeta-bajo-el-supuesto-de-homocedasticidad
+factor-inflacionario-de-la-varianza
