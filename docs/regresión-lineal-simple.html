@@ -90,6 +90,7 @@
 <li class="chapter" data-level="1.2" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#supuestos-gauss-markov"><i class="fa fa-check"></i><b>1.2</b> Supuestos Gauss-Markov</a></li>
 <li class="chapter" data-level="1.3" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#especificaciones"><i class="fa fa-check"></i><b>1.3</b> Especificaciones</a></li>
 <li class="chapter" data-level="1.4" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#inferencia-estad%C3%ADstica"><i class="fa fa-check"></i><b>1.4</b> Inferencia Estadística</a></li>
+<li class="chapter" data-level="1.5" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#sesgo-por-variable-omitida"><i class="fa fa-check"></i><b>1.5</b> Sesgo por Variable Omitida</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html"><i class="fa fa-check"></i><b>2</b> Modelo de Regresión Lineal Múltiple</a>
 <ul>
@@ -250,6 +251,33 @@ Y = \beta_0 + \beta_1X + \varepsilon
 <p>De manera equivalente, podemos construir un intervalo de confianza para llegar a la misma conclusión. Si realiza ambos métodos para la misma prueba pero obtiene conclusiones distintas, revise sus cálculos, pues existe un error. La fórmula para construir un intervalo de confianza al <span class="math inline">\((1-\alpha)\%\)</span> es:</p>
 <p><span class="math display">\[IC = \hat{\beta}_i \pm t_{\alpha/2, n-k-1} \cdot se(\hat{\beta}_i)\]</span></p>
 <p>Si el valor hipotético (<span class="math inline">\(\beta_i = 0\)</span>) <strong>no pertenece</strong> al intervalo de confianza, se rechaza la hipótesis nula.</p>
+</div>
+<div id="sesgo-por-variable-omitida" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Sesgo por Variable Omitida<a href="regresión-lineal-simple.html#sesgo-por-variable-omitida" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dentro de nuestros modelos, podríamos tener distintos problemas, uno de ellos es el “Sesgo por Variable Omitida”. Esto ocurre cuando nosotros, como bien dice el nombre, omitimos una variable que es importante en el estudio, y está correlacionada con las otras variables y con la variable regresada. Para ilustrarlo, imaginemos “conocemos” un modelo poblacional que está estimado de tal forma que:</p>
+<p><span class="math display">\[
+Y = \gamma_0 + \gamma_1X_1 + \gamma_2X_2 + v
+\]</span>
+Y nosotros, de manera muestral estimamos el siguiente modelo:</p>
+<p><span class="math display">\[
+Y = \beta_0 + \beta_1X_1 + \varepsilon
+\]</span>
+Sabiendo que el estimador de <span class="math inline">\(\widehat{\beta_1}\)</span> corresponde a <span class="math inline">\(\widehat{\beta_1} = \frac{Cov(Y,X_1)}{V(X_1)}\)</span>, entonces estudiamos insesgadez con el modelo poblacional que “conocemos”:</p>
+<p><span class="math display">\[
+E[\widehat{\beta_1}|X] = E\left[\frac{Cov(\gamma_0 + \gamma_1X_1 + \gamma_2X_2 + v,X)}{V(X_1)}|X\right]
+\]</span></p>
+<p><span class="math display">\[
+E[\widehat{\beta_1}|X] = E\left[\frac{Cov(\gamma_0,X) + \gamma_1Cov(X_1,X_1) + \gamma_2Cov(X_2,X_1) + Cov(v,X)}{V(X_1)}|X\right]
+\]</span>
+Sabiendo que la covarianza entre una constante y una variable es 0, la covarianza del error con una variable es cero por el supuesto de media condicional del error y la covarianza entre una variable y si misma es su varianza, se obtiene:
+<span class="math display">\[
+E[\widehat{\beta_1}|X] = E\left[\gamma_1 + \gamma_2\frac{Cov(X_1,X_2)}{V(X_1)}\right]
+\]</span></p>
+<p>Todo lo que tiene <span class="math inline">\(X\)</span> y, todo lo constante sale hacia afuera de la esperanza, tal que:</p>
+<p><span class="math display">\[
+E[\widehat{\beta_1}|X] = \gamma_1 + \gamma_2\frac{Cov(X_1,X_2)}{V(X_1)}
+\]</span></p>
+<p>Entonces, queda demostrado que omitir una variable relevante, que covaría con otra de las variables regresoras genera un sesgo en el estimador de <span class="math inline">\(\widehat{\beta_1}\)</span> ya que, el efecto de la variable omitida se está capturando por <span class="math inline">\(\widehat{\beta_1}\)</span> y por ende se está sobreestimando o subestimando el efecto de dicha variable.</p>
 
 </div>
 </div>

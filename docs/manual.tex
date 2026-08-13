@@ -245,6 +245,40 @@ De manera equivalente, podemos construir un intervalo de confianza para llegar a
 
 Si el valor hipotético (\(\beta_i = 0\)) \textbf{no pertenece} al intervalo de confianza, se rechaza la hipótesis nula.
 
+\section{Sesgo por Variable Omitida}\label{sesgo-por-variable-omitida}
+
+Dentro de nuestros modelos, podríamos tener distintos problemas, uno de ellos es el ``Sesgo por Variable Omitida''. Esto ocurre cuando nosotros, como bien dice el nombre, omitimos una variable que es importante en el estudio, y está correlacionada con las otras variables y con la variable regresada. Para ilustrarlo, imaginemos ``conocemos'' un modelo poblacional que está estimado de tal forma que:
+
+\[
+Y = \gamma_0 + \gamma_1X_1 + \gamma_2X_2 + v
+\]
+Y nosotros, de manera muestral estimamos el siguiente modelo:
+
+\[
+Y = \beta_0 + \beta_1X_1 + \varepsilon
+\]
+Sabiendo que el estimador de \(\widehat{\beta_1}\) corresponde a \(\widehat{\beta_1} = \frac{Cov(Y,X_1)}{V(X_1)}\), entonces estudiamos insesgadez con el modelo poblacional que ``conocemos'':
+
+\[
+E[\widehat{\beta_1}|X] = E\left[\frac{Cov(\gamma_0 + \gamma_1X_1 + \gamma_2X_2 + v,X)}{V(X_1)}|X\right]
+\]
+
+\[
+E[\widehat{\beta_1}|X] = E\left[\frac{Cov(\gamma_0,X) + \gamma_1Cov(X_1,X_1) + \gamma_2Cov(X_2,X_1) + Cov(v,X)}{V(X_1)}|X\right]
+\]
+Sabiendo que la covarianza entre una constante y una variable es 0, la covarianza del error con una variable es cero por el supuesto de media condicional del error y la covarianza entre una variable y si misma es su varianza, se obtiene:
+\[
+E[\widehat{\beta_1}|X] = E\left[\gamma_1 + \gamma_2\frac{Cov(X_1,X_2)}{V(X_1)}\right]
+\]
+
+Todo lo que tiene \(X\) y, todo lo constante sale hacia afuera de la esperanza, tal que:
+
+\[
+E[\widehat{\beta_1}|X] = \gamma_1 + \gamma_2\frac{Cov(X_1,X_2)}{V(X_1)}
+\]
+
+Entonces, queda demostrado que omitir una variable relevante, que covaría con otra de las variables regresoras genera un sesgo en el estimador de \(\widehat{\beta_1}\) ya que, el efecto de la variable omitida se está capturando por \(\widehat{\beta_1}\) y por ende se está sobreestimando o subestimando el efecto de dicha variable.
+
 \chapter{Modelo de Regresión Lineal Múltiple}\label{modelo-de-regresiuxf3n-lineal-muxfaltiple}
 
 \section{Definición}\label{definiciuxf3n-1}
