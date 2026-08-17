@@ -83,7 +83,7 @@
 
 \title{Manual de Econometría I}
 \author{Joakina Quezada \& Maximiliano Stuardo}
-\date{2026-08-11}
+\date{2026-08-17}
 
 \begin{document}
 \maketitle
@@ -110,11 +110,13 @@ Estudiante de Ingeniería Comercial mención Economía / Microeconometrista.
 \chapter*{Introducción: ¿Qué es la Econometría?}\label{introducciuxf3n-quuxe9-es-la-econometruxeda}
 \addcontentsline{toc}{chapter}{Introducción: ¿Qué es la Econometría?}
 
-\section{Definición de Econometría}\label{definiciuxf3n-de-econometruxeda}
+\section*{Definición de Econometría}\label{definiciuxf3n-de-econometruxeda}
+\addcontentsline{toc}{section}{Definición de Econometría}
 
 La econometría es la disciplina que combina la teoría económica, la estadística y las matemáticas para analizar datos económicos y probar hipótesis. Su objetivo principal es cuantificar relaciones económicas y hacer predicciones basadas en modelos matemáticos.
 
-\section{Importancia de la Econometría}\label{importancia-de-la-econometruxeda}
+\section*{Importancia de la Econometría}\label{importancia-de-la-econometruxeda}
+\addcontentsline{toc}{section}{Importancia de la Econometría}
 
 La importancia de la econometría radica en su capacidad para proporcionar herramientas que permiten a los economistas y analistas tomar decisiones informadas. A través del análisis de datos, la econometría ayuda a:
 
@@ -129,7 +131,8 @@ La importancia de la econometría radica en su capacidad para proporcionar herra
   Identificar relaciones causales entre variables económicas.
 \end{enumerate}
 
-\section{Correlación y Causalidad}\label{correlaciuxf3n-y-causalidad}
+\section*{Correlación y Causalidad}\label{correlaciuxf3n-y-causalidad}
+\addcontentsline{toc}{section}{Correlación y Causalidad}
 
 Es fundamental entender la diferencia entre correlación y causalidad en econometría. La correlación indica que dos variables están relacionadas, pero no necesariamente que una cause la otra. La causalidad, por otro lado, implica que un cambio en una variable provoca un cambio en otra.
 
@@ -246,6 +249,40 @@ De manera equivalente, podemos construir un intervalo de confianza para llegar a
 \[IC = \hat{\beta}_i \pm t_{\alpha/2, n-k-1} \cdot se(\hat{\beta}_i)\]
 
 Si el valor hipotético (\(\beta_i = 0\)) \textbf{no pertenece} al intervalo de confianza, se rechaza la hipótesis nula.
+
+\section{Sesgo por Variable Omitida}\label{sesgo-por-variable-omitida}
+
+Dentro de nuestros modelos, podríamos tener distintos problemas, uno de ellos es el ``Sesgo por Variable Omitida''. Esto ocurre cuando nosotros, como bien dice el nombre, omitimos una variable que es importante en el estudio, y está correlacionada con las otras variables y con la variable regresada. Para ilustrarlo, imaginemos ``conocemos'' un modelo poblacional que está estimado de tal forma que:
+
+\[
+Y = \gamma_0 + \gamma_1X_1 + \gamma_2X_2 + v
+\]
+Y nosotros, de manera muestral estimamos el siguiente modelo:
+
+\[
+Y = \beta_0 + \beta_1X_1 + \varepsilon
+\]
+Sabiendo que el estimador de \(\widehat{\beta_1}\) corresponde a \(\widehat{\beta_1} = \frac{Cov(Y,X_1)}{V(X_1)}\), entonces estudiamos insesgadez con el modelo poblacional que ``conocemos'':
+
+\[
+E[\widehat{\beta_1}|X] = E\left[\frac{Cov(\gamma_0 + \gamma_1X_1 + \gamma_2X_2 + v,X)}{V(X_1)}|X\right]
+\]
+
+\[
+E[\widehat{\beta_1}|X] = E\left[\frac{Cov(\gamma_0,X) + \gamma_1Cov(X_1,X_1) + \gamma_2Cov(X_2,X_1) + Cov(v,X)}{V(X_1)}|X\right]
+\]
+Sabiendo que la covarianza entre una constante y una variable es 0, la covarianza del error con una variable es cero por el supuesto de media condicional del error y la covarianza entre una variable y si misma es su varianza, se obtiene:
+\[
+E[\widehat{\beta_1}|X] = E\left[\gamma_1 + \gamma_2\frac{Cov(X_1,X_2)}{V(X_1)}\right]
+\]
+
+Todo lo que tiene \(X\) y, todo lo constante sale hacia afuera de la esperanza, tal que:
+
+\[
+E[\widehat{\beta_1}|X] = \gamma_1 + \gamma_2\frac{Cov(X_1,X_2)}{V(X_1)}
+\]
+
+Entonces, queda demostrado que omitir una variable relevante, que covaría con otra de las variables regresoras genera un sesgo en el estimador de \(\widehat{\beta_1}\) ya que, el efecto de la variable omitida se está capturando por \(\widehat{\beta_1}\) y por ende se está sobreestimando o subestimando el efecto de dicha variable.
 
 \chapter{Modelo de Regresión Lineal Múltiple}\label{modelo-de-regresiuxf3n-lineal-muxfaltiple}
 
