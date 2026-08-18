@@ -26,3 +26,39 @@ Al sumar las multiplicaciones de las observaciones por su probabilidad obtendrem
 $$
 E[X] = \frac{1+2+3+4+5+6}{6} = \frac{21}{6} = 3.5
 $$
+
+### Varianza
+
+Sea $X_1, X_2, X_3, ... , X_n$ una variable aleatoria i.i.d. con media $\mu$ y varianza $\sigma^2$ definición la varianza se puede escribir como:
+
+$$
+V(X) = \sum_{i = 1}^n \frac{(x_i -\mu)^2}{n}
+$$
+
+Pero, podemos escribir la varianza como esperanza, tal que:
+
+$$
+V(X) = E[(X - \mu)^2]
+$$
+$$
+V(X) = E[X^2 - 2X\mu + \mu^2]
+$$
+$$
+V(X) = E[X^2] - 2\mu E[X] + \mu^2
+$$
+$$
+V(X) = E[X^2] - 2\mu^2 + \mu^2
+$$
+$$
+V(X) = E[X^2] - \mu^2
+$$
+$$
+V(X) = E[X^2] - (E[X])^2
+$$
+
+
+
+
+
+
+
