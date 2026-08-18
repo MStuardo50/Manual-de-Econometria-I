@@ -4,6 +4,7 @@ delete_merged_file: true
 resource_files: ["img"]
 rmd_files:
   - "index.Rmd"
+  - "00-repaso-estadistica.Rmd"
   - "01-regresion-simple.rmd"
   - "02-regresion-multiple.rmd"
   - "03-multicolinealidad.rmd"
