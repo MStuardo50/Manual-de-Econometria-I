@@ -23,7 +23,7 @@
 <meta name="author" content="Joakina Quezada &amp; Maximiliano Stuardo" />
 
 
-<meta name="date" content="2026-08-17" />
+<meta name="date" content="2026-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -179,7 +179,7 @@
 <p><span class="math display">\[V(\widehat{\beta}) =  (X^TX)^{-1}X^T\Omega X(X^TX)^{-1}\]</span></p>
 <p>Donde <span class="math inline">\(\Omega\)</span> es una matriz diagonal con elementos <span class="math inline">\(\sigma_i^2\)</span> en la diagonal, es decir, la varianza de los residuos no es constante. Por lo tanto, el estimador de MCO sigue siendo insesgado, pero ya no es eficiente. Por lo que necesitamos un estimador robusto a heterocedasticidad.</p>
 <p>Gráficamente, la heterocedasticidad se puede presentar de la siguiente forma:</p>
-<p><img src="manual_files/figure-html/unnamed-chunk-6-1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
+<p><img src="manual_files/figure-html/unnamed-chunk-7-1.png" alt="" width="100%" style="display: block; margin: auto;" /></p>
 <p>Si observan, a medida que aumenta el valor de <span class="math inline">\(X\)</span>, en el caso heterocedástico vemos que cada vez más aumenta el error. Esto podría suceder de forma de abanico creciente, decreciente o en forma de U, cualquiera de las tres mencionadas son casos de heterocedasticidad. Lo que a nosotros nos gustaría ver es que se forme una nube sin forma, que en promedio oscile en un valor constante para cada valor de <span class="math inline">\(X\)</span>.</p>
 </div>
 <div id="consecuencias-para-mco" class="section level2 hasAnchor" number="5.2">

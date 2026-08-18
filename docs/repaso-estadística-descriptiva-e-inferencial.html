@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Repaso Estadística Descriptiva e Inferencial | Manual de Econometría I</title>
+  <meta name="description" content="Manual práctico de Econometría I" />
+  <meta name="generator" content="bookdown 0.47 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Repaso Estadística Descriptiva e Inferencial | Manual de Econometría I" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Manual práctico de Econometría I" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Repaso Estadística Descriptiva e Inferencial | Manual de Econometría I" />
+  
+  <meta name="twitter:description" content="Manual práctico de Econometría I" />
+  
+
+<meta name="author" content="Joakina Quezada &amp; Maximiliano Stuardo" />
+
+
+<meta name="date" content="2026-08-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introducción-qué-es-la-econometría.html"/>
+<link rel="next" href="regresión-lineal-simple.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><b>📘 Manual Econometría I</b></a></li>
+<li><a href="./" style="font-size: 0.85em; opacity: 0.8;">Maximiliano S. & Joakina Q.</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Sobre los Autores</a></li>
+<li class="chapter" data-level="" data-path="introducción-qué-es-la-econometría.html"><a href="introducción-qué-es-la-econometría.html"><i class="fa fa-check"></i>Introducción: ¿Qué es la Econometría?</a>
+<ul>
+<li class="chapter" data-level="" data-path="introducción-qué-es-la-econometría.html"><a href="introducción-qué-es-la-econometría.html#definici%C3%B3n-de-econometr%C3%ADa"><i class="fa fa-check"></i>Definición de Econometría</a></li>
+<li class="chapter" data-level="" data-path="introducción-qué-es-la-econometría.html"><a href="introducción-qué-es-la-econometría.html#importancia-de-la-econometr%C3%ADa"><i class="fa fa-check"></i>Importancia de la Econometría</a></li>
+<li class="chapter" data-level="" data-path="introducción-qué-es-la-econometría.html"><a href="introducción-qué-es-la-econometría.html#correlaci%C3%B3n-y-causalidad"><i class="fa fa-check"></i>Correlación y Causalidad</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="repaso-estadística-descriptiva-e-inferencial.html"><a href="repaso-estadística-descriptiva-e-inferencial.html"><i class="fa fa-check"></i><b>1</b> Repaso Estadística Descriptiva e Inferencial</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="repaso-estadística-descriptiva-e-inferencial.html"><a href="repaso-estadística-descriptiva-e-inferencial.html#estad%C3%ADstica-descriptiva"><i class="fa fa-check"></i><b>1.1</b> Estadística Descriptiva</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="repaso-estadística-descriptiva-e-inferencial.html"><a href="repaso-estadística-descriptiva-e-inferencial.html#esperanza"><i class="fa fa-check"></i><b>1.1.1</b> Esperanza</a></li>
+<li class="chapter" data-level="1.1.2" data-path="repaso-estadística-descriptiva-e-inferencial.html"><a href="repaso-estadística-descriptiva-e-inferencial.html#varianza"><i class="fa fa-check"></i><b>1.1.2</b> Varianza</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html"><i class="fa fa-check"></i><b>2</b> Regresión Lineal Simple</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#definici%C3%B3n"><i class="fa fa-check"></i><b>2.1</b> Definición</a></li>
+<li class="chapter" data-level="2.2" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#supuestos-gauss-markov"><i class="fa fa-check"></i><b>2.2</b> Supuestos Gauss-Markov</a></li>
+<li class="chapter" data-level="2.3" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#especificaciones"><i class="fa fa-check"></i><b>2.3</b> Especificaciones</a></li>
+<li class="chapter" data-level="2.4" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#inferencia-estad%C3%ADstica"><i class="fa fa-check"></i><b>2.4</b> Inferencia Estadística</a></li>
+<li class="chapter" data-level="2.5" data-path="regresión-lineal-simple.html"><a href="regresión-lineal-simple.html#sesgo-por-variable-omitida"><i class="fa fa-check"></i><b>2.5</b> Sesgo por Variable Omitida</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html"><i class="fa fa-check"></i><b>3</b> Modelo de Regresión Lineal Múltiple</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#definici%C3%B3n-1"><i class="fa fa-check"></i><b>3.1</b> Definición</a></li>
+<li class="chapter" data-level="3.2" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#bondad-de-ajuste"><i class="fa fa-check"></i><b>3.2</b> Bondad de Ajuste</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#r2"><i class="fa fa-check"></i><b>3.2.1</b> <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#overfitting"><i class="fa fa-check"></i><b>3.2.2</b> Overfitting</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#inferencia-estad%C3%ADstica-1"><i class="fa fa-check"></i><b>3.3</b> Inferencia Estadística</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#prueba-de-significancia-global"><i class="fa fa-check"></i><b>3.3.1</b> Prueba de Significancia Global</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#prueba-de-significancia-de-combinaciones-de-par%C3%A1metros"><i class="fa fa-check"></i><b>3.4</b> Prueba de Significancia de Combinaciones de Parámetros</a></li>
+<li class="chapter" data-level="3.5" data-path="modelo-de-regresión-lineal-múltiple.html"><a href="modelo-de-regresión-lineal-múltiple.html#m%C3%BAltiples-restricciones-lineales"><i class="fa fa-check"></i><b>3.5</b> Múltiples Restricciones Lineales</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="multicolinealidad.html"><a href="multicolinealidad.html"><i class="fa fa-check"></i><b>4</b> Multicolinealidad</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="multicolinealidad.html"><a href="multicolinealidad.html#multicolinealidad-perfecta"><i class="fa fa-check"></i><b>4.1</b> Multicolinealidad Perfecta</a></li>
+<li class="chapter" data-level="4.2" data-path="multicolinealidad.html"><a href="multicolinealidad.html#multicolinealidad-no-perfecta"><i class="fa fa-check"></i><b>4.2</b> Multicolinealidad No Perfecta</a></li>
+<li class="chapter" data-level="4.3" data-path="multicolinealidad.html"><a href="multicolinealidad.html#factor-inflacionario-de-la-varianza"><i class="fa fa-check"></i><b>4.3</b> Factor Inflacionario de la Varianza</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="variables-dummy.html"><a href="variables-dummy.html"><i class="fa fa-check"></i><b>5</b> Variables Dummy</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="variables-dummy.html"><a href="variables-dummy.html#modelo-de-regresi%C3%B3n-simple-con-variables-dummy"><i class="fa fa-check"></i><b>5.1</b> Modelo de Regresión Simple con Variables Dummy</a></li>
+<li class="chapter" data-level="5.2" data-path="variables-dummy.html"><a href="variables-dummy.html#modelo-de-regresi%C3%B3n-m%C3%BAltiple-con-variables-dummy"><i class="fa fa-check"></i><b>5.2</b> Modelo de Regresión Múltiple con Variables Dummy</a></li>
+<li class="chapter" data-level="5.3" data-path="variables-dummy.html"><a href="variables-dummy.html#interacciones"><i class="fa fa-check"></i><b>5.3</b> Interacciones</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="heterocedasticidad.html"><a href="heterocedasticidad.html"><i class="fa fa-check"></i><b>6</b> Heterocedasticidad</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="heterocedasticidad.html"><a href="heterocedasticidad.html#definici%C3%B3n-2"><i class="fa fa-check"></i><b>6.1</b> Definición</a></li>
+<li class="chapter" data-level="6.2" data-path="heterocedasticidad.html"><a href="heterocedasticidad.html#consecuencias-para-mco"><i class="fa fa-check"></i><b>6.2</b> Consecuencias para MCO</a></li>
+<li class="chapter" data-level="6.3" data-path="heterocedasticidad.html"><a href="heterocedasticidad.html#detecci%C3%B3n-de-heterocedasticidad"><i class="fa fa-check"></i><b>6.3</b> Detección de Heterocedasticidad</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html"><i class="fa fa-check"></i><b>7</b> Endogeneidad: Variables Instrumentales</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#definici%C3%B3n-3"><i class="fa fa-check"></i><b>7.1</b> Definición</a></li>
+<li class="chapter" data-level="7.2" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#soluci%C3%B3n-variables-instrumentales"><i class="fa fa-check"></i><b>7.2</b> Solución: Variables Instrumentales</a></li>
+<li class="chapter" data-level="7.3" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#m%C3%ADnimo-cuadrados-en-dos-etapas-mc2e"><i class="fa fa-check"></i><b>7.3</b> Mínimo Cuadrados en Dos Etapas (MC2E)</a></li>
+<li class="chapter" data-level="7.4" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#implicancias-de-m%C3%ADnimos-cuadrados-en-dos-etapas"><i class="fa fa-check"></i><b>7.4</b> Implicancias de Mínimos Cuadrados en Dos Etapas</a></li>
+<li class="chapter" data-level="7.5" data-path="endogeneidad-variables-instrumentales.html"><a href="endogeneidad-variables-instrumentales.html#test-de-hausman"><i class="fa fa-check"></i><b>7.5</b> Test de Hausman</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="anexo.html"><a href="anexo.html"><i class="fa fa-check"></i><b>8</b> Anexo</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="anexo.html"><a href="anexo.html#regresi%C3%B3n-lineal-simple-1"><i class="fa fa-check"></i><b>8.1</b> Regresión Lineal Simple</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-del-estimador-de-hatbeta_0-y-hatbeta_1-mediante-mco"><i class="fa fa-check"></i><b>8.1.1</b> Demostración del estimador de <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span> mediante MCO</a></li>
+<li class="chapter" data-level="8.1.2" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-insesgadez-para-hatbeta_0-y-hatbeta_1"><i class="fa fa-check"></i><b>8.1.2</b> Demostración de Insesgadez para <span class="math inline">\(\hat{\beta}_0\)</span> y <span class="math inline">\(\hat{\beta}_1\)</span></a></li>
+<li class="chapter" data-level="8.1.3" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-la-varianza-de-hatbeta_1"><i class="fa fa-check"></i><b>8.1.3</b> Demostración de la varianza de <span class="math inline">\(\hat{\beta}_1\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="anexo.html"><a href="anexo.html#regresi%C3%B3n-lineal-m%C3%BAltiple"><i class="fa fa-check"></i><b>8.2</b> Regresión Lineal Múltiple</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-del-estimador-del-vector-de-hatbeta-bajo-el-supuesto-de-homocedasticidad"><i class="fa fa-check"></i><b>8.2.1</b> Demostración del Estimador del Vector de <span class="math inline">\(\hat{\beta}\)</span> bajo el supuesto de Homocedasticidad</a></li>
+<li class="chapter" data-level="8.2.2" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-insesgadez-del-vector-de-hatbeta"><i class="fa fa-check"></i><b>8.2.2</b> Demostración de Insesgadez del Vector de <span class="math inline">\(\hat{\beta}\)</span></a></li>
+<li class="chapter" data-level="8.2.3" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-la-varianza-de-hatbeta-bajo-el-supuesto-de-homocedasticidad"><i class="fa fa-check"></i><b>8.2.3</b> Demostración de la Varianza de <span class="math inline">\(\hat{\beta}\)</span> bajo el supuesto de Homocedasticidad</a></li>
+<li class="chapter" data-level="8.2.4" data-path="anexo.html"><a href="anexo.html#demostraci%C3%B3n-de-tildebeta"><i class="fa fa-check"></i><b>8.2.4</b> Demostración de <span class="math inline">\(\tilde{\beta}\)</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ejercicios.html"><a href="ejercicios.html"><i class="fa fa-check"></i><b>9</b> Ejercicios</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="ejercicios.html"><a href="ejercicios.html#parte-i-comentes"><i class="fa fa-check"></i><b>9.1</b> Parte I: Comentes</a></li>
+<li class="chapter" data-level="9.2" data-path="ejercicios.html"><a href="ejercicios.html#parte-ii-matem%C3%A1ticos"><i class="fa fa-check"></i><b>9.2</b> Parte II: Matemáticos</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="ejercicios.html"><a href="ejercicios.html#modelos-de-regresi%C3%B3n-lineal-simple"><i class="fa fa-check"></i><b>9.2.1</b> Modelos de Regresión Lineal Simple</a></li>
+<li class="chapter" data-level="9.2.2" data-path="ejercicios.html"><a href="ejercicios.html#modelos-de-regresi%C3%B3n-lineal-m%C3%BAltiple"><i class="fa fa-check"></i><b>9.2.2</b> Modelos de Regresión Lineal Múltiple</a></li>
+<li class="chapter" data-level="9.2.3" data-path="ejercicios.html"><a href="ejercicios.html#modelos-con-variables-dummy"><i class="fa fa-check"></i><b>9.2.3</b> Modelos con Variables Dummy</a></li>
+<li class="chapter" data-level="9.2.4" data-path="ejercicios.html"><a href="ejercicios.html#modelos-con-heterocedasticidad"><i class="fa fa-check"></i><b>9.2.4</b> Modelos con Heterocedasticidad</a></li>
+<li class="chapter" data-level="9.2.5" data-path="ejercicios.html"><a href="ejercicios.html#modelos-con-endogeneidad"><i class="fa fa-check"></i><b>9.2.5</b> Modelos con Endogeneidad</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="_blank">Publicado con Bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Manual de Econometría I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="repaso-estadística-descriptiva-e-inferencial" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Repaso Estadística Descriptiva e Inferencial<a href="repaso-estadística-descriptiva-e-inferencial.html#repaso-estad%C3%ADstica-descriptiva-e-inferencial" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="estadística-descriptiva" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Estadística Descriptiva<a href="repaso-estadística-descriptiva-e-inferencial.html#estad%C3%ADstica-descriptiva" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="esperanza" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Esperanza<a href="repaso-estadística-descriptiva-e-inferencial.html#esperanza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La esperanza por definición es el promedio de los resultados de un experimento si aquel lo repetimos muchas veces. Matemáticamente la esperanza para una v.a.d es:</p>
+<p><span class="math display">\[
+E[X] = \sum_{i=1}^{\n} x_iP(X=x_i)
+\]</span></p>
+<p>En resumidas cuentas, es la suma de la multiplicación de la observación por su probabilidad. Por ejemplo, si estuviésemos interesados en calcular la esperanza de lanzar un dado honesto, primero, sabemos que:</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(X\)</span></th>
+<th><span class="math inline">\(P(X = x_i)\)</span></th>
+<th><span class="math inline">\(XP(X = x_i)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1/6</td>
+<td>1/6</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>1/6</td>
+<td>2/6</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>1/6</td>
+<td>3/6</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1/6</td>
+<td>4/6</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>1/6</td>
+<td>5/6</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>1/6</td>
+<td>6/6</td>
+</tr>
+</tbody>
+</table>
+<p>Al sumar las multiplicaciones de las observaciones por su probabilidad obtendremos la esperanza, por lo tanto, para este caso la esperanza es:</p>
+<p><span class="math display">\[
+E[X] = \frac{1+2+3+4+5+6}{6} = \frac{21}{6} = 3.5
+\]</span></p>
+</div>
+<div id="varianza" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Varianza<a href="repaso-estadística-descriptiva-e-inferencial.html#varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sea <span class="math inline">\(X_1, X_2, X_3, ... , X_n\)</span> una variable aleatoria i.i.d. con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2\)</span> definición la varianza se puede escribir como:</p>
+<p><span class="math display">\[
+V(X) = \sum_{i = 1}^n \frac{(x_i -\mu)^2}{n}
+\]</span></p>
+<p>Pero, podemos escribir la varianza como esperanza, tal que:</p>
+<p><span class="math display">\[
+V(X) = E[(X - \mu)^2]
+\]</span>
+<span class="math display">\[
+V(X) = E[X^2 - 2X\mu + \mu^2]
+\]</span>
+<span class="math display">\[
+V(X) = E[X^2] - 2\mu E[X] + \mu^2
+\]</span>
+<span class="math display">\[
+V(X) = E[X^2] - 2\mu^2 + \mu^2
+\]</span>
+<span class="math display">\[
+V(X) = E[X^2] - \mu^2
+\]</span>
+<span class="math display">\[
+V(X) = E[X^2] - (E[X])^2
+\]</span></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introducción-qué-es-la-econometría.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresión-lineal-simple.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
+    "download": "manual.pdf"
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["manual.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

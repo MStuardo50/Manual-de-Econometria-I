@@ -12,3 +12,4 @@ rmd_files:
   - "05-heterocedasticidad.rmd"
   - "06-endogeneidad.rmd"
   - "07-anexos.Rmd"
+  - "08-ejercicios.rmd"
