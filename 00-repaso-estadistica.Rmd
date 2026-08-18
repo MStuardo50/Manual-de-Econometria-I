@@ -55,6 +55,34 @@ $$
 $$
 V(X) = E[X^2] - (E[X])^2
 $$
+### Estandarización 
+
+$$
+\frac{X-\mu}{\sigma} \sim N(0,1)
+$$
+
+### Distribución Normal
+
+$$
+f(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2}\left[\frac{X-\mu}{\sigma}\right]^2}
+$$
+
+```{r, echo = FALSE}
+library(ggplot2)
+x <- seq(-3, 3, by = 0.01)
+y <- dnorm(x, mean = 0, sd = 1)
+
+data <- data.frame(x,y)
+
+ggplot(data, aes(x = x, y = y)) + 
+  geom_line(col = "red", linewidth = 1.2) +
+  labs(title = "Distribución Normal") +
+  theme_light()
+```
+
+
+## Estadística Inferencial
+
 
 
 

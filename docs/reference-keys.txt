@@ -1,3 +1,9 @@
+repaso-estadística-descriptiva-e-inferencial
+estadística-descriptiva
+esperanza
+varianza
+distribución-normal
+estadística-inferencial
 regresión-lineal-simple
 definición
 supuestos-gauss-markov
@@ -41,3 +47,11 @@ demostración-del-estimador-del-vector-de-hatbeta-bajo-el-supuesto-de-homocedast
 demostración-de-insesgadez-del-vector-de-hatbeta
 demostración-de-la-varianza-de-hatbeta-bajo-el-supuesto-de-homocedasticidad
 demostración-de-tildebeta
+ejercicios
+parte-i-comentes
+parte-ii-matemáticos
+modelos-de-regresión-lineal-simple
+modelos-de-regresión-lineal-múltiple
+modelos-con-variables-dummy
+modelos-con-heterocedasticidad
+modelos-con-endogeneidad
